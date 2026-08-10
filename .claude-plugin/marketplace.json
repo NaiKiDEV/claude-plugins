@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "naikidev",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Claude Code plugins by naikidev",
   "owner": {
     "name": "naikidev",
@@ -21,6 +21,13 @@
       "description": "Manual-only controlled-language modes. Constrains the vocabulary, sentence shape, and order of what Claude writes to a published rule set, for one target or for the rest of the session. Ships /ste (ASD-STE100 Simplified Technical English), /ubiquitous (domain-driven design's ubiquitous language), and /bluf (bottom line up front).",
       "category": "productivity",
       "tags": ["writing", "style", "controlled-language", "simplified-technical-english", "ste", "technical-writing", "documentation", "ddd", "domain-driven-design", "ubiquitous-language", "glossary", "bluf", "communication", "structure"]
+    },
+    {
+      "name": "hub",
+      "source": "./plugins/hub",
+      "description": "Manual-only hub-and-spoke orchestration. /hub turns the main session into a dispatcher that decomposes a task, writes self-contained cold-start briefs, gates the plan for approval, fans work out to subagents, verifies what comes back, and integrates. Delegation is the default, and a direct edit is a stated exception the hub has to justify and disclose.",
+      "category": "productivity",
+      "tags": ["orchestration", "hub-and-spoke", "delegation", "subagents", "agents", "parallel", "fan-out", "context-management", "planning", "task-decomposition", "verification"]
     }
   ]
 }

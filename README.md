@@ -67,6 +67,22 @@ A dialect governs prose only. It never rewrites code, quotations, or identifiers
 /plugin install dialect@naikidev
 ```
 
+### [`hub`](./plugins/hub)
+
+Hub-and-spoke orchestration. The hub is the main session rather than a subagent: `/hub` loads the protocol into the conversation you are already in, and that conversation dispatches the work. Manual-only, like the plugins above.
+
+| Skill | Purpose |
+| --- | --- |
+| `/hub [what to build, investigate, or change]` | Decomposes a task, routes each piece to a spoke, gates the plan for approval, dispatches cold-start briefs, verifies what comes back, and integrates. |
+
+The hub delegates by default and edits by exception, against a stated test: if the brief describing a change would be longer than the change, the hub makes it and reports it separately. Work that was part of the plan, work needing code the hub has not read, and files a running spoke owns are delegated at any size. Dispatch is gated: the decomposition is printed with each spoke's assigned files, and nothing runs until you approve it.
+
+Spokes route to the agents already installed in your session, preferring the most specific match, and fall back to three generics the plugin ships (`hub-investigator`, `hub-implementer`, `hub-verifier`). A returned report is treated as a claim rather than a result, and the hub re-runs decisive checks itself.
+
+```
+/plugin install hub@naikidev
+```
+
 ## Naming
 
 Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name.

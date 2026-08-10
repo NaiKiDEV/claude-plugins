@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "hub",
+  "displayName": "Hub",
+  "version": "0.1.0",
+  "description": "Manual-only hub-and-spoke orchestration. /hub turns the main session into a dispatcher that decomposes a task, writes self-contained cold-start briefs, gates the plan for approval, fans work out to subagents, verifies what comes back, and integrates. Delegation is the default, and a direct edit is a stated exception the hub has to justify and disclose.",
+  "author": {
+    "name": "naikidev",
+    "url": "https://github.com/naikidev"
+  },
+  "repository": "https://github.com/naikidev/claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "orchestration",
+    "hub-and-spoke",
+    "delegation",
+    "subagents",
+    "agents",
+    "parallel",
+    "fan-out",
+    "context-management",
+    "planning",
+    "task-decomposition",
+    "verification"
+  ]
+}
