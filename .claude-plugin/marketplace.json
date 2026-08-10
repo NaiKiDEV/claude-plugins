@@ -1,11 +1,26 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "naikidev",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Claude Code plugins by naikidev",
   "owner": {
     "name": "naikidev",
     "url": "https://github.com/naikidev"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "questions",
+      "source": "./plugins/questions",
+      "description": "Manual-only interrogatives for work in progress: /why /where /what /how /who /when. Claims carry checkable provenance instead of a confidence score, and nothing here writes.",
+      "category": "productivity",
+      "tags": ["explain", "reasoning", "search", "references", "navigation", "read-only"]
+    },
+    {
+      "name": "dialect",
+      "source": "./plugins/dialect",
+      "description": "Manual-only controlled-language modes. Constrains the vocabulary, sentence shape, and order of what Claude writes to a published rule set, for one target or for the rest of the session. Ships /ste (ASD-STE100 Simplified Technical English), /ubiquitous (domain-driven design's ubiquitous language), and /bluf (bottom line up front).",
+      "category": "productivity",
+      "tags": ["writing", "style", "controlled-language", "simplified-technical-english", "ste", "technical-writing", "documentation", "ddd", "domain-driven-design", "ubiquitous-language", "glossary", "bluf", "communication", "structure"]
+    }
+  ]
 }

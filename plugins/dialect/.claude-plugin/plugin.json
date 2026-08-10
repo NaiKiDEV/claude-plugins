@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "dialect",
+  "displayName": "Dialect",
+  "version": "0.1.0",
+  "description": "Manual-only controlled-language modes. Constrains the vocabulary, sentence shape, and order of what Claude writes to a published rule set, for one target or for the rest of the session. Ships /ste (ASD-STE100 Simplified Technical English), /ubiquitous (domain-driven design's ubiquitous language), and /bluf (bottom line up front).",
+  "author": {
+    "name": "naikidev",
+    "url": "https://github.com/naikidev"
+  },
+  "repository": "https://github.com/naikidev/claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "style",
+    "controlled-language",
+    "simplified-technical-english",
+    "ste",
+    "technical-writing",
+    "documentation",
+    "ddd",
+    "domain-driven-design",
+    "ubiquitous-language",
+    "glossary",
+    "bluf",
+    "communication",
+    "structure"
+  ]
+}

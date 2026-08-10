@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "questions",
+  "displayName": "Questions",
+  "version": "0.1.0",
+  "description": "Manual-only interrogatives for work in progress: /why /where /what /how /who /when. Claims carry checkable provenance instead of a confidence score, and nothing here writes.",
+  "author": {
+    "name": "naikidev",
+    "url": "https://github.com/naikidev"
+  },
+  "repository": "https://github.com/naikidev/claude-plugins",
+  "license": "MIT",
+  "keywords": ["explain", "reasoning", "search", "references", "navigation", "read-only"]
+}
