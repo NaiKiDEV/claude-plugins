@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "visualize",
+  "displayName": "Visualize",
+  "version": "0.1.0",
+  "description": "Manual-only visualizations (table, tree, flowchart, sequence, kanban, and 9 more) rendered by a bundled zero-dependency script so alignment never drifts, most skills drawing with Unicode box-drawing and symbols while list and checklist keep plain ASCII markers, since a single decorator glyph proved too subtle to read reliably.",
+  "author": {
+    "name": "naikidev",
+    "url": "https://github.com/naikidev"
+  },
+  "repository": "https://github.com/naikidev/claude-plugins",
+  "license": "MIT",
+  "keywords": ["ascii", "diagrams", "visualization", "tables", "charts", "trees", "flowcharts", "read-only"]
+}

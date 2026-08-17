@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "naikidev",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Claude Code plugins by naikidev",
   "owner": {
     "name": "naikidev",
@@ -28,6 +28,13 @@
       "description": "Manual-only hub-and-spoke orchestration. /hub turns the main session into a dispatcher that decomposes a task, writes self-contained cold-start briefs, gates the plan for approval, fans work out to subagents, verifies what comes back, and integrates. Delegation is the default, and a direct edit is a stated exception the hub has to justify and disclose.",
       "category": "productivity",
       "tags": ["orchestration", "hub-and-spoke", "delegation", "subagents", "agents", "parallel", "fan-out", "context-management", "planning", "task-decomposition", "verification"]
+    },
+    {
+      "name": "visualize",
+      "source": "./plugins/visualize",
+      "description": "Manual-only visualizations: table, list, tree, flowchart, sequence, kanban, and 9 more, rendered by a bundled zero-dependency script that computes alignment and padding so columns and connectors never drift; most skills draw with Unicode box-drawing and symbols, while list and checklist keep plain ASCII markers, since a single decorator glyph proved too subtle to read reliably.",
+      "category": "productivity",
+      "tags": ["ascii", "diagrams", "visualization", "tables", "charts", "trees", "flowcharts", "read-only"]
     }
   ]
 }
