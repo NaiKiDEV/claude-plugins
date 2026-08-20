@@ -51,17 +51,24 @@ Claims carry an inline provenance tag (`[session]`, a `file:line` citation, or `
 
 ### [`dialect`](./plugins/dialect)
 
-Controlled-language modes. Each skill constrains the vocabulary, sentence shape, or order of what Claude writes to a published rule set, either on a single target or for the rest of the session. Manual-only, like the interrogatives above.
+Ten controlled-language modes. Each skill constrains the vocabulary, sentence shape, evidence, or order of what Claude writes to a published rule set, either on a single target or for the rest of the session. Manual-only, like the interrogatives above.
 
 | Skill | Purpose |
 | --- | --- |
 | `/ste [target]` | ASD-STE100 Simplified Technical English: one meaning for each word, 20-word instructions, three-word noun clusters, simple tenses, active voice, and warnings before the step they apply to. |
+| `/plain [target]` | Plain language to ISO 24495-1 and the Federal Plain Language Guidelines: the named reader's own words, hidden verbs dug out, active voice, and structure the reader can navigate. |
 | `/ubiquitous [domain or target]` | Domain-driven design's ubiquitous language: the terms the business actually uses, scoped to one bounded context, established from the project first and the user second, with drift between the code and the business reported rather than smoothed over. |
+| `/calibrated [target]` | ICD 203 analytic tradecraft: evidence, assumption, and judgment kept distinguishable, every judgment carrying a probability word from a seven-term ladder plus a separate confidence level, and anything one command would settle checked rather than estimated. |
+| `/normative [target]` | RFC 2119 and RFC 8174 keywords: `MUST`, `SHOULD`, and `MAY` used strictly, so a blocker and a preference cannot be confused, with every requirement single, unambiguous, and verifiable. |
 | `/bluf [target]` | Bottom line up front, the US military standard: the answer in the first sentence, support in descending order of importance, no preamble, with explicit handling for the answers that resist the format. |
+| `/pyramid [target]` | Minto's Pyramid Principle: one governing thought that summarises rather than labels, MECE groups of the same kind of idea, and each level answering the single question the line above raises. |
+| `/sbar [target]` | The clinical handoff form: Situation, Background, Assessment, Recommendation, all four slots filled, with a named action, actor, and timeframe in the last one. |
+| `/comments [target]` | Conventional Comments: every review remark carries a label and a blocking decoration, so the author can triage before reading, with volume capped and nothing a linter already owns. |
+| `/diataxis [mode or target]` | Diataxis's four documentation modes: write in exactly one of tutorial, how-to, reference, or explanation, and move the content that belongs to the other three. |
 
-Dialects stack. `/bluf` orders the sentences while `/ste` and `/ubiquitous` shape and populate them, and each skill states what it composes with.
+Dialects stack, because they constrain different layers. `/ste` and `/plain` shape the sentences, `/ubiquitous` populates them with the project's own words, `/calibrated` decides what a sentence may assert, `/normative` fixes how strongly an obligation binds, `/bluf` and `/pyramid` order them, `/sbar` and `/comments` put them in a fixed form, and `/diataxis` decides which of them belong in the document at all. Each skill states what it composes with, and the four pairs that genuinely conflict each declare which side wins.
 
-A dialect governs prose only. It never rewrites code, quotations, or identifiers, and never renames anything to satisfy a vocabulary rule.
+A dialect governs prose only. It never rewrites code, quotations, or identifiers, and never renames anything to satisfy a vocabulary rule. Every skill that rewards short, confident sentences also carries an explicit instruction not to buy them with accuracy.
 
 ```
 /plugin install dialect@naikidev

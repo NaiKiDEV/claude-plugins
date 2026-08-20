@@ -102,6 +102,10 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 
 - **`/bluf`.** No conflict. This supplies the vocabulary. BLUF supplies the order.
 - **`/ste`.** No conflict, and the two reinforce each other. Both give one word to each concept. Domain terms count as technical names under STE, so they survive its vocabulary limit intact and must not be swapped for a simpler word.
+- **`/plain`.** No conflict. Domain terms are the reader's own words, so they survive its word rules intact for the same reason they survive STE's.
+- **`/pyramid`** and **`/diataxis`.** No conflict. This supplies the vocabulary, and those decide the structure and the mode.
+- **`/calibrated`.** No conflict. This supplies the words, and that supplies the epistemics. A term tagged `[inferred]` here and a judgment there are the same admission at different levels.
+- **`/comments`.** No conflict, and worth pairing for a review. Name what the code does in the project's own terms rather than in general ones.
 
 ## Output
 

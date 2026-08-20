@@ -3,7 +3,7 @@
 | Plugin | What it adds |
 | --- | --- |
 | [`questions`](./questions) | Six read-only interrogatives: `/why` `/where` `/what` `/how` `/who` `/when`. |
-| [`dialect`](./dialect) | Controlled-language modes constraining the vocabulary, sentence shape, and order of what Claude writes: `/ste` `/ubiquitous` `/bluf`. |
+| [`dialect`](./dialect) | Ten controlled-language modes constraining the vocabulary, sentence shape, evidence, and order of what Claude writes: `/ste` `/plain` `/ubiquitous` `/calibrated` `/normative` `/bluf` `/pyramid` `/sbar` `/comments` `/diataxis`. |
 | [`hub`](./hub) | Hub-and-spoke orchestration: `/hub` decomposes a task, gates the plan, dispatches spokes, and verifies what comes back. |
 | [`visualize`](./visualize) | Fourteen renderers, Unicode box-drawing by default with a plain-ASCII exception for list/checklist: `/table` `/table-grouped` `/list` `/checklist` `/file-tree` `/tree` `/box-diagram` `/state-machine` `/flowchart` `/sequence` `/timeline` `/kanban` `/bar-chart` `/matrix`. |
 

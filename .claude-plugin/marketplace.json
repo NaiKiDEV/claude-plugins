@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "naikidev",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Claude Code plugins by naikidev",
   "owner": {
     "name": "naikidev",
@@ -18,9 +18,9 @@
     {
       "name": "dialect",
       "source": "./plugins/dialect",
-      "description": "Manual-only controlled-language modes. Constrains the vocabulary, sentence shape, and order of what Claude writes to a published rule set, for one target or for the rest of the session. Ships /ste (ASD-STE100 Simplified Technical English), /ubiquitous (domain-driven design's ubiquitous language), and /bluf (bottom line up front).",
+      "description": "Manual-only controlled-language modes. Constrains the vocabulary, sentence shape, evidence, and order of what Claude writes to a published rule set, for one target or for the rest of the session. Ships /ste (ASD-STE100), /plain (ISO 24495-1 plain language), /ubiquitous (ubiquitous language), /calibrated (ICD 203 analytic standards), /normative (RFC 2119 keywords), /bluf (bottom line up front), /pyramid (Minto), /sbar (clinical handoff), /comments (Conventional Comments), and /diataxis (four documentation modes).",
       "category": "productivity",
-      "tags": ["writing", "style", "controlled-language", "simplified-technical-english", "ste", "technical-writing", "documentation", "ddd", "domain-driven-design", "ubiquitous-language", "glossary", "bluf", "communication", "structure"]
+      "tags": ["writing", "style", "controlled-language", "simplified-technical-english", "ste", "plain-language", "technical-writing", "documentation", "diataxis", "ddd", "domain-driven-design", "ubiquitous-language", "glossary", "bluf", "pyramid-principle", "minto", "sbar", "handoff", "escalation", "conventional-comments", "code-review", "rfc-2119", "requirements", "icd-203", "calibration", "uncertainty", "communication", "structure"]
     },
     {
       "name": "hub",

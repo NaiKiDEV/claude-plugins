@@ -100,6 +100,11 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 
 - **`/ste`.** No conflict. STE constrains the sentences, and BLUF orders them. Together they give short definite sentences in descending importance, which suits a procedure or an incident report.
 - **`/ubiquitous`.** No conflict. It supplies the vocabulary, and this supplies the order.
+- **`/plain`.** No conflict, and reinforcing. Most important first is the same instinct at document scale.
+- **`/calibrated`.** Reinforcing, and it supplies what the section above asks for. *Do not manufacture certainty* forbids overclaiming without giving a ladder to climb down to. That skill is the ladder.
+- **`/pyramid`.** Same family, and the larger of the two. It keeps everything here and adds the governing thought's summarising rule, MECE grouping, and the vertical question. Precedence: use it for documents, use this for conversation. Do not run both as session modes at once.
+- **`/sbar`.** Conflict, and SBAR wins where it applies. Its four slots are fixed and the receiver expects them, so do not lead an escalation with the Recommendation. Inside each slot, this applies.
+- **`/diataxis`.** Partial conflict, resolved by mode. Reference and explanation take a bottom line. Tutorial and how-to keep their sequence, which the *Scope* section above already exempts.
 
 ## Before you send
 

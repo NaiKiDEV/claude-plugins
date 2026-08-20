@@ -135,6 +135,12 @@ Do not say that the result "is ASD-STE100 compliant". Compliance needs the speci
 
 - **`/bluf`.** No conflict. STE controls the sentences. BLUF puts them in order.
 - **`/ubiquitous`.** No conflict. Both rules give one word to each concept. Domain terms are technical names, so they are exempt from the vocabulary limit. Keep them exact.
+- **`/plain`.** These overlap. Use one at a time. STE is the stricter rule set: fixed rules, hard sentence limits, and an approved dictionary, built for a procedure that a reader must act on under pressure. Plain language covers any subject, carries nuance that a 20-word limit cannot, and adds structure and findability. Use STE for procedures, warnings, and interface copy. If both are somehow in play, the numeric limits here win.
+- **`/normative`.** One conflict, and that skill wins. The replacement table above sends `shall` to `must` and rewrites `should` and `may`. In a normative statement, `MUST`, `SHOULD`, and `MAY` are defined terms with different meanings. Keep the upper case keywords exactly as they are, and apply these rules to the rest of the sentence.
+- **`/calibrated`.** One conflict, and that skill wins. The table above sends `should` to `must`, which is correct for an instruction and wrong for an estimate. An estimate is not an obligation. Write a probability word instead.
+- **`/pyramid`.** No conflict. STE builds the sentences, and that skill puts them in order.
+- **`/diataxis`.** No conflict. That skill decides what goes in the document. STE decides how each sentence is built. STE fits a tutorial and a how-to best, because both are procedures.
+- **`/sbar`.** No conflict, and a good pair. Short definite sentences suit a message that somebody reads under pressure.
 
 ## Output
 
