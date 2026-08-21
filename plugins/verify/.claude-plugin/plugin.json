@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "verify",
   "displayName": "Verify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Manual-only verification procedures. Each skill runs one published protocol to produce evidence about code that already exists, rather than an argument about it. Ships /repro (delta debugging), /bisect (predicate-driven bisection), /boundary (equivalence partitioning and boundary value analysis), /differential (differential testing), /property (property-based testing), and /mutate (mutation testing).",
   "author": {
     "name": "naikidev",

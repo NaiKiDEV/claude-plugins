@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "decide",
   "displayName": "Decide",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Manual-only decision procedures. Each skill runs one published protocol against a judgment already on the table, structuring it without making it. Ships /reversible (one-way and two-way doors), /options (WRAP widening), /tradeoff (Kepner-Tregoe and Pugh), /hypotheses (ACH), /premortem (Klein), /redteam (adversarial review), /fermi (order-of-magnitude estimation), /base-rate (reference class forecasting), /quit (kill criteria), and /adr (Nygard decision records).",
   "author": {
     "name": "naikidev",
