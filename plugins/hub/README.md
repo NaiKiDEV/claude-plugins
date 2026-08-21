@@ -87,6 +87,8 @@ A spoke that returns `partial`, `blocked`, or nothing is re-dispatched once with
 
 The closing report separates what is done, with the check the hub ran rather than the check a spoke claimed, from what the hub edited directly and what did not land at all.
 
+Where the [`refine`](../refine) plugin is installed, the decomposition has an upstream. `/wbs` produces the breakdown and the parallel front, and `/invest` emits ready items carrying objective, context, scope, boundaries, and check, which are five of the six fields a brief needs. They reach the gate without a translation step, and the hub supplies the return shape.
+
 ## Install
 
 ```

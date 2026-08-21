@@ -51,6 +51,8 @@ Prefer the smallest number of spokes that covers the work. Past about five concu
 
 Track the pieces with `TodoWrite`. That list is the ledger for the run. Nothing is written to disk, so it is also the only place a dropped task becomes visible.
 
+Where the `refine` plugin is installed, this phase has an upstream. `/wbs` produces the breakdown, the file ownership, and the parallel front. `/invest` grades each piece and emits the ready ones carrying objective, context, scope, boundaries, and check, which are five of the six fields a brief needs, so they arrive here already decomposed and you add the return shape. Run them first on work whose pieces are not obvious, since a decomposition you have to invent at dispatch time is the one most likely to be wrong.
+
 ## 3. Route
 
 For each piece, pick the spoke.

@@ -9,6 +9,7 @@ Controlled-language modes for Claude Code. Each skill constrains the vocabulary,
 | [`/ubiquitous`](#ubiquitous) | Domain-driven design's ubiquitous language | Vocabulary, taken from the project |
 | [`/calibrated`](#calibrated) | ICD 203 analytic tradecraft standards | Evidence and certainty |
 | [`/normative`](#normative) | RFC 2119 and RFC 8174 keywords | Obligation |
+| [`/ears`](#ears) | EARS, the Easy Approach to Requirements Syntax | Requirement shape |
 | [`/bluf`](#bluf) | Bottom line up front, the US military writing standard | Order |
 | [`/pyramid`](#pyramid) | Minto's Pyramid Principle | Argument structure |
 | [`/sbar`](#sbar) | SBAR, the clinical handoff form | Fixed form |
@@ -23,7 +24,7 @@ The problem it addresses is the default register of a coding assistant. Left alo
 
 A dialect is a rule set that can be pointed at, which makes it checkable. "Write more clearly" is a preference, and adherence to it decays within a few turns. "No sentence over 20 words, no noun cluster over three words, active voice, one word for each meaning" is a specification, and a departure from it is visible in the text.
 
-The rule sets constrain different layers, which is why they combine. `/ste` and `/plain` shape sentences. `/ubiquitous` populates them with the project's own words. `/calibrated` decides what a sentence is allowed to assert. `/normative` fixes how strongly an obligation binds. `/bluf` and `/pyramid` order the sentences, `/sbar` and `/comments` put them in a fixed form, and `/diataxis` decides which of them belong in the document at all.
+The rule sets constrain different layers, which is why they combine. `/ste` and `/plain` shape sentences. `/ubiquitous` populates them with the project's own words. `/calibrated` decides what a sentence is allowed to assert. `/normative` fixes how strongly an obligation binds and `/ears` fixes the shape of the sentence stating it. `/bluf` and `/pyramid` order the sentences, `/sbar` and `/comments` put them in a fixed form, and `/diataxis` decides which of them belong in the document at all.
 
 ## Conventions
 
@@ -37,7 +38,7 @@ The rule sets constrain different layers, which is why they combine. `/ste` and 
 
 **Prose only.** A dialect governs explanations, documentation, comments, commit messages, error strings, and interface copy. It never alters identifiers, API names, commands, paths, or quoted log output, and it never renames anything in a codebase to satisfy a vocabulary rule. Rewriting a quotation would change the fact being reported, so quotations pass through intact.
 
-**Composable, with declared precedence.** Each skill carries a `Composes with` section covering the others. Most pairs sit on different layers and combine without argument. Four pairs do not, and each states which side wins: `/pyramid` supersedes `/bluf` for documents and defers to it in conversation, `/sbar` overrides both inside its four slots, `/plain` and `/ste` are alternatives rather than a stack, and `/normative` and `/calibrated` both override STE's replacement table where it would rewrite `must`, `should`, or `may`.
+**Composable, with declared precedence.** Each skill carries a `Composes with` section covering the others. Most pairs sit on different layers and combine without argument. Four pairs do not, and each states which side wins: `/pyramid` supersedes `/bluf` for documents and defers to it in conversation, `/sbar` overrides both inside its four slots, `/plain` and `/ste` are alternatives rather than a stack, and `/normative` and `/calibrated` both override STE's replacement table where it would rewrite `must`, `should`, or `may`. `/ears` and `/normative` are the one pair designed to be written together rather than chosen between, since one fixes shape and the other fixes strength.
 
 **Content survives the rule set.** Every skill that rewards short, confident sentences carries an explicit instruction not to buy them with accuracy. A true qualification is kept and the sentence divided instead. A confident sentence that is wrong is worse than the wordy one it replaced.
 
@@ -219,6 +220,38 @@ Requirement quality rules follow the INCOSE guidance and ISO/IEC/IEEE 29148: one
 **Obligation is not probability.** `MUST` says a thing is required, not that it is certain, and "this SHOULD work" is the exact ambiguity RFC 2119 exists to remove. Likelihood belongs to `/calibrated`, and the two skills each say so.
 
 **Somebody else's keywords are quoted, not corrected.** When reading an existing specification, a `SHOULD` is reported as a `SHOULD` even where the skill would have written `MUST`, with the disagreement stated separately.
+
+## `/ears`
+
+```
+/ears
+/ears off
+/ears these acceptance criteria
+/ears what this queue consumer has to guarantee
+```
+
+[EARS](https://alistairmavin.com/ears/) was published by Alistair Mavin and colleagues at the IEEE Requirements Engineering conference in 2009, after being applied to jet engine control software at Rolls-Royce. It is five templates plus a rule for combining them, and every requirement must fit exactly one.
+
+The constraint that does the work is the classification rather than the wording. Deciding which template a requirement belongs to forces its trigger, its state, or its condition to be named, and a requirement whose trigger cannot be named does not have one. "The system validates uploaded files" fits no template, and working out why is the exercise: it never says when, so it could mean on upload, on access, or nightly, and each is a different system.
+
+| Pattern | Shape |
+| --- | --- |
+| Ubiquitous | The `<system>` shall `<response>` |
+| Event-driven | `WHEN` `<trigger>`, the `<system>` shall `<response>` |
+| State-driven | `WHILE` `<state>`, the `<system>` shall `<response>` |
+| Optional feature | `WHERE` `<feature is included>`, the `<system>` shall `<response>` |
+| Unwanted behaviour | `IF` `<trigger>`, `THEN` the `<system>` shall `<response>` |
+| Complex | `WHILE` `<state>`, `WHEN` `<trigger>`, the `<system>` shall `<response>` |
+
+### Behaviour notes
+
+**`WHEN` and `IF` are not interchangeable, and that distinction is most of the value.** `WHEN` is for a trigger expected to happen, `IF` for one that is not wanted. Keeping them apart makes the failure cases countable, and a specification where nobody can count the failure cases has an unknown number of gaps. The skill checks for unwanted-behaviour requirements explicitly and reports a specification that has none.
+
+**A requirement that fits no template is an output, not a problem to solve.** It is reported with the missing part named: the trigger, the state, the subject, or the observable response. The skill will not invent a trigger to make somebody else's requirement fit, since that turns a reading into a specification.
+
+**Coverage is checked across the set.** Every `WHEN` is asked what happens when its trigger goes wrong, every `WHILE` is asked for its entry and exit, and every `WHERE` is asked what happens when the optional feature is absent. Those three questions are where most missing requirements are.
+
+**It fixes shape, not strength.** `shall` marks the response slot and does not grade the obligation. The generic requirement shape already in `/normative` is this notation's complex template, unnamed; what this adds is the classification and the coverage checks, which one generic shape cannot give. Written together, the RFC 2119 keyword takes the response slot: `WHEN <trigger>, the <system> MUST <response>`.
 
 ## `/bluf`
 

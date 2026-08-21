@@ -3,11 +3,12 @@
 | Plugin | What it adds |
 | --- | --- |
 | [`questions`](./questions) | Six read-only interrogatives: `/why` `/where` `/what` `/how` `/who` `/when`. |
-| [`dialect`](./dialect) | Ten controlled-language modes constraining the vocabulary, sentence shape, evidence, and order of what Claude writes: `/ste` `/plain` `/ubiquitous` `/calibrated` `/normative` `/bluf` `/pyramid` `/sbar` `/comments` `/diataxis`. |
+| [`dialect`](./dialect) | Eleven controlled-language modes constraining the vocabulary, sentence shape, evidence, and order of what Claude writes: `/ste` `/plain` `/ubiquitous` `/calibrated` `/normative` `/ears` `/bluf` `/pyramid` `/sbar` `/comments` `/diataxis`. |
 | [`hub`](./hub) | Hub-and-spoke orchestration: `/hub` decomposes a task, gates the plan, dispatches spokes, and verifies what comes back. |
 | [`visualize`](./visualize) | Fourteen renderers, Unicode box-drawing by default with a plain-ASCII exception for list/checklist: `/table` `/table-grouped` `/list` `/checklist` `/file-tree` `/tree` `/box-diagram` `/state-machine` `/flowchart` `/sequence` `/timeline` `/kanban` `/bar-chart` `/matrix`. |
 | [`decide`](./decide) | Ten decision procedures, each running one published protocol against a judgment already on the table: `/reversible` `/options` `/tradeoff` `/hypotheses` `/premortem` `/redteam` `/fermi` `/base-rate` `/quit` `/adr`. |
 | [`verify`](./verify) | Six verification procedures producing evidence about code that already exists, three of them script-backed: `/repro` `/bisect` `/boundary` `/differential` `/property` `/mutate`. |
+| [`refine`](./refine) | Six refinement procedures driving described work down until it is unambiguous to a human and dispatchable by an orchestrator: `/impact` `/wbs` `/split` `/examples` `/smells` `/invest`. |
 
 Each plugin lives in its own folder:
 

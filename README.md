@@ -51,7 +51,7 @@ Claims carry an inline provenance tag (`[session]`, a `file:line` citation, or `
 
 ### [`dialect`](./plugins/dialect)
 
-Ten controlled-language modes. Each skill constrains the vocabulary, sentence shape, evidence, or order of what Claude writes to a published rule set, either on a single target or for the rest of the session. Manual-only, like the interrogatives above.
+Eleven controlled-language modes. Each skill constrains the vocabulary, sentence shape, evidence, or order of what Claude writes to a published rule set, either on a single target or for the rest of the session. Manual-only, like the interrogatives above.
 
 | Skill | Purpose |
 | --- | --- |
@@ -60,6 +60,7 @@ Ten controlled-language modes. Each skill constrains the vocabulary, sentence sh
 | `/ubiquitous [domain or target]` | Domain-driven design's ubiquitous language: the terms the business actually uses, scoped to one bounded context, established from the project first and the user second, with drift between the code and the business reported rather than smoothed over. |
 | `/calibrated [target]` | ICD 203 analytic tradecraft: evidence, assumption, and judgment kept distinguishable, every judgment carrying a probability word from a seven-term ladder plus a separate confidence level, and anything one command would settle checked rather than estimated. |
 | `/normative [target]` | RFC 2119 and RFC 8174 keywords: `MUST`, `SHOULD`, and `MAY` used strictly, so a blocker and a preference cannot be confused, with every requirement single, unambiguous, and verifiable. |
+| `/ears [target]` | EARS, from Rolls-Royce: five requirement templates plus a rule for combining them, where the classification is the point, since a requirement whose template cannot be chosen is missing its trigger, its state, or its subject. `WHEN` and `IF` are kept apart, which makes the failure cases countable. |
 | `/bluf [target]` | Bottom line up front, the US military standard: the answer in the first sentence, support in descending order of importance, no preamble, with explicit handling for the answers that resist the format. |
 | `/pyramid [target]` | Minto's Pyramid Principle: one governing thought that summarises rather than labels, MECE groups of the same kind of idea, and each level answering the single question the line above raises. |
 | `/sbar [target]` | The clinical handoff form: Situation, Background, Assessment, Recommendation, all four slots filled, with a named action, actor, and timeframe in the last one. |
@@ -167,9 +168,32 @@ Three skills bundle a zero-dependency Node script, for the reason `visualize` do
 /plugin install verify@naikidev
 ```
 
+### [`refine`](./plugins/refine)
+
+Six refinement procedures. Where `decide` structures a judgment and `verify` produces evidence about code that exists, these take work that has been described but not yet defined and drive it down until it can be executed. Manual-only and read-only, like the plugins above.
+
+| Skill | Purpose |
+| --- | --- |
+| `/impact [goal]` | Adzic's impact mapping: goal, actors, behaviour changes, deliverables, where each deliverable is written as a falsifiable hypothesis about producing an impact rather than as a commitment. The goal has to be achievable without building the thing, or it is a deliverable wearing a goal's clothes. Obstructing actors and impacts you want to prevent are both on the map, and deliverables with no impact above them are cut by name. |
+| `/wbs [deliverable]` | Work breakdown under the 100% rule: children sum to exactly the parent, checked in both directions at every level, with the residue named wherever a level will not sum. Nodes are deliverables rather than phases, since "design, build, test, deploy" is 100% of any project by construction and can never reveal the missing rollback. A leaf stops at a work package: one owner, estimable, one completion test that is a command, finishable in one pass. |
+| `/split [item]` | Lawrence's splitting patterns with Cohn's SPIDR, worked in order of yield. Every slice is vertical and passes three tests: could it ship alone, is something observably different afterwards, can it be verified on its own terms. The code is read for seams that already exist before one is invented, and the named anti-patterns each carry a repair, including "write the tests" and "error handling" as a single bag. |
+| `/examples [item]` | Wynne's example mapping: rules, a concrete example with real values under each, and a red card for every question nobody can answer. Carries an explicit prohibition on resolving a question by choosing a reading, which is the failure mode an agent has by default and the reason the skill exists. The card counts are the readiness verdict, and more than about six rules sends the item to `/split`. |
+| `/smells [spec]` | Requirements smells against ISO/IEC/IEEE 29148, over a specification somebody already wrote. The set-level pass is what a careful read cannot do: two requirements that each pass every check can still contradict each other. Requirements are checked against the code, findings are graded by consequence rather than counted, and a blocking finding comes back as a question rather than as a wording fix that quietly makes the decision. |
+| `/invest [items]` | Wake's INVEST, used as the gate before dispatch. Letters that are claims about the repository are checked there rather than argued from the text, each failure carries its named repair, and passes go unreported so the failures are visible. Ready items are emitted in the five fields a spoke brief is made of; items that fail are held back rather than softened into a caveat. |
+
+The shared rule is *nothing invented to fill a shape*. A rule with no example becomes an open question rather than acquiring a fabricated one, a requirement missing its trigger is reported rather than supplied with one, and a level that will not sum to 100% names its residue rather than widening a sibling to absorb it. The alternative, an agent quietly completing the specification it was asked to check, produces exactly the plausible wrong answer these exist to prevent.
+
+The pipeline runs `/impact` to `/wbs` to `/split` to `/examples` to `/invest`, with `/smells` entering wherever a written specification already exists. `/split` and `/examples` double as repairs, for items failing **S** and **T** respectively.
+
+`/invest` is shaped to hand off. Ready items come out carrying Objective, Context, Scope, Boundaries, and Check, which are the fields [`hub`](./plugins/hub) writes into a spoke brief, so they reach its gate without a translation step. Where `hub` is not installed, those five fields are what a person needs to pick the item up cold.
+
+```
+/plugin install refine@naikidev
+```
+
 ## Naming
 
-Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name. This matters most for `visualize`, whose skill names (`table`, `tree`, `list`) are short, common words other plugins are likely to also claim, for `decide`, where `/options`, `/quit`, and `/tradeoff` are the same kind of name, and for `verify`, where `/boundary`, `/property`, and `/differential` are.
+Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name. This matters most for `visualize`, whose skill names (`table`, `tree`, `list`) are short, common words other plugins are likely to also claim, for `decide`, where `/options`, `/quit`, and `/tradeoff` are the same kind of name, for `verify`, where `/boundary`, `/property`, and `/differential` are, and for `refine`, where `/examples`, `/split`, and `/impact` are.
 
 No skill is named `verify`, so a `/verify` command installed from elsewhere stays reachable alongside the plugin.
 

@@ -103,6 +103,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 
 ## Composes with
 
+- **`/ears`.** Reinforcing, and they are designed to be used together. This fixes strength, that fixes shape. The generic requirement form above is EARS's complex template, and that skill adds the classification into five named patterns plus the coverage checks that follow from it, which one generic shape cannot give. Written together, the keyword takes the response slot: `WHEN <trigger>, the <system> MUST <response>`.
 - **`/ste`.** One conflict, resolved in favour of this skill. STE's replacement table sends `shall` to `must` and rewrites `should` and `may` outright, which is right for procedure prose and wrong for a normative statement, where the three words are distinct defined terms. Under both, keep the upper case keywords exactly as they are and apply STE's rules to everything around them.
 - **`/calibrated`.** No conflict, and the two must not be mixed. This states obligation. That states probability. A requirement is not more or less likely, and a judgment is not mandatory.
 - **`/bluf`.** No conflict, and reinforcing. Lead with the `MUST`s, since those are what the reader has to act on.
