@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "naikidev",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Claude Code plugins by naikidev",
   "owner": {
     "name": "naikidev",
@@ -42,6 +42,13 @@
       "description": "Manual-only decision procedures. Each skill runs one published protocol against a judgment already on the table, structuring it without making it. Ships /reversible (one-way and two-way doors), /options (WRAP widening), /tradeoff (Kepner-Tregoe and Pugh), /hypotheses (ACH), /premortem (Klein), /redteam (adversarial review), /fermi (order-of-magnitude estimation), /base-rate (reference class forecasting), /quit (kill criteria), and /adr (Nygard decision records).",
       "category": "productivity",
       "tags": ["decision-making", "analysis", "judgment", "reasoning", "estimation", "planning", "risk", "ach", "heuer", "premortem", "klein", "red-team", "adversarial-review", "steelman", "wrap", "narrow-framing", "options", "tradeoff", "kepner-tregoe", "pugh-matrix", "decision-matrix", "reversible", "one-way-door", "fermi", "reference-class-forecasting", "base-rate", "planning-fallacy", "outside-view", "sunk-cost", "kill-criteria", "adr", "architecture-decision-record", "nygard", "debugging", "root-cause"]
+    },
+    {
+      "name": "verify",
+      "source": "./plugins/verify",
+      "description": "Manual-only verification procedures. Each skill runs one published protocol to produce evidence about code that already exists, rather than an argument about it. Ships /repro (delta debugging), /bisect (predicate-driven bisection), /boundary (equivalence partitioning and boundary value analysis), /differential (differential testing), /property (property-based testing), and /mutate (mutation testing). Three skills bundle a zero-dependency Node script, and /mutate, the only skill that rewrites a tracked file, refuses to run on a dirty tree or a red suite and proves byte-identical restoration.",
+      "category": "productivity",
+      "tags": ["verification", "testing", "debugging", "evidence", "falsification", "delta-debugging", "ddmin", "zeller", "minimal-reproduction", "repro", "bisect", "git-bisect", "regression", "equivalence-partitioning", "boundary-value-analysis", "bs-7925-2", "iso-29119", "differential-testing", "mckeeman", "refactoring-safety", "property-based-testing", "quickcheck", "invariants", "mutation-testing", "demillo", "test-quality", "coverage", "oracle"]
     }
   ]
 }

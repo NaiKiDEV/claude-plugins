@@ -7,6 +7,7 @@
 | [`hub`](./hub) | Hub-and-spoke orchestration: `/hub` decomposes a task, gates the plan, dispatches spokes, and verifies what comes back. |
 | [`visualize`](./visualize) | Fourteen renderers, Unicode box-drawing by default with a plain-ASCII exception for list/checklist: `/table` `/table-grouped` `/list` `/checklist` `/file-tree` `/tree` `/box-diagram` `/state-machine` `/flowchart` `/sequence` `/timeline` `/kanban` `/bar-chart` `/matrix`. |
 | [`decide`](./decide) | Ten decision procedures, each running one published protocol against a judgment already on the table: `/reversible` `/options` `/tradeoff` `/hypotheses` `/premortem` `/redteam` `/fermi` `/base-rate` `/quit` `/adr`. |
+| [`verify`](./verify) | Six verification procedures producing evidence about code that already exists, three of them script-backed: `/repro` `/bisect` `/boundary` `/differential` `/property` `/mutate`. |
 
 Each plugin lives in its own folder:
 

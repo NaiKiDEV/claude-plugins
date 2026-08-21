@@ -144,9 +144,34 @@ Nine of the ten produce a recommendation you can reject and none decides anythin
 /plugin install decide@naikidev
 ```
 
+### [`verify`](./plugins/verify)
+
+Six verification procedures. Where `decide` structures a judgment, these replace the judgment with an observation wherever one is available: each skill runs one published protocol to produce evidence about code that already exists. Manual-only, like the plugins above.
+
+| Skill | Purpose |
+| --- | --- |
+| `/repro [failure]` | Shrink a failure to the smallest case that still triggers it, by delta debugging, with the oracle matched to the specific failure signal and validated before any reduction runs. What the reduction removed is reported as the finding, since every discarded part is something the bug does not depend on. |
+| `/bisect [behaviour]` | Find the change that introduced something, by binary search over history. Mostly about the predicate, since a bad one does not fail loudly, it returns a commit confidently and that commit is wrong. Both endpoints are tested rather than assumed, and the result separates the commit that wrote a bug from the one that exposed it. |
+| `/boundary [target]` | Derive test cases from the input space rather than from the implementation, by equivalence partitioning and boundary value analysis, with invalid classes enumerated separately. Then check which classes the existing tests actually cover, by reading assertions and running them rather than by reading test names. |
+| `/differential [comparison]` | Run two implementations against the same inputs and compare, replacing the oracle with a second implementation. Usually the previous version of your own code, reached through `git worktree`, which makes it the refactor safety net over the behaviour nobody wrote a test for. Accepted differences are declared before the run. |
+| `/property [target]` | Find the invariants that must hold over all inputs, by working a catalogue of property patterns rather than inventing assertions, using whichever framework the project already has. Half the findings come from the properties that could not be stated. |
+| `/mutate [file]` | Introduce small faults deliberately and check whether the tests notice. Coverage measures which lines executed; this measures which faults are detected. The sharpest tool here for generated suites, whose characteristic failure is high coverage with weak assertions. |
+
+The shared rule is *check before you verify*, the same discipline `decide` opens with. Each protocol also fixes an order of operations so the observation cannot be corrupted by what you expect to see: the oracle is validated before any reduction, both bisect endpoints are tested, the accepted differences are declared before the differential run, and the suite is proved green before a single mutant is introduced.
+
+Three skills bundle a zero-dependency Node script, for the reason `visualize` does: where an answer has a checkable invariant, it should be computed rather than generated. `ddmin.js` runs the reduction, `predicate.js` collapses a flaky check into git's `0`, `1`, and `125` exit codes, and `mutate.js` owns mutant discovery and the whole apply-run-restore loop.
+
+`/mutate` is the only skill in the marketplace that rewrites a tracked file. It refuses to run on a dirty tree or a red suite, keeps an on-disk backup that survives being killed outright, restores on four signals and in a `finally`, and proves byte-identical restoration before reporting. Two agents ship alongside, `verify-shrinker` and `verify-mutator`, for the loops whose iteration count would otherwise flood the session.
+
+```
+/plugin install verify@naikidev
+```
+
 ## Naming
 
-Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name. This matters most for `visualize`, whose skill names (`table`, `tree`, `list`) are short, common words other plugins are likely to also claim, and for `decide`, where `/options`, `/quit`, and `/tradeoff` are the same kind of name.
+Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name. This matters most for `visualize`, whose skill names (`table`, `tree`, `list`) are short, common words other plugins are likely to also claim, for `decide`, where `/options`, `/quit`, and `/tradeoff` are the same kind of name, and for `verify`, where `/boundary`, `/property`, and `/differential` are.
+
+No skill is named `verify`, so a `/verify` command installed from elsewhere stays reachable alongside the plugin.
 
 ## License
 

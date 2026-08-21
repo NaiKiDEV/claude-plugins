@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "verify",
+  "displayName": "Verify",
+  "version": "0.1.0",
+  "description": "Manual-only verification procedures. Each skill runs one published protocol to produce evidence about code that already exists, rather than an argument about it. Ships /repro (delta debugging), /bisect (predicate-driven bisection), /boundary (equivalence partitioning and boundary value analysis), /differential (differential testing), /property (property-based testing), and /mutate (mutation testing).",
+  "author": {
+    "name": "naikidev",
+    "url": "https://github.com/naikidev"
+  },
+  "repository": "https://github.com/naikidev/claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "verification",
+    "testing",
+    "debugging",
+    "evidence",
+    "falsification",
+    "delta-debugging",
+    "ddmin",
+    "zeller",
+    "minimal-reproduction",
+    "repro",
+    "bisect",
+    "git-bisect",
+    "regression",
+    "equivalence-partitioning",
+    "boundary-value-analysis",
+    "bs-7925-2",
+    "iso-29119",
+    "differential-testing",
+    "mckeeman",
+    "refactoring-safety",
+    "property-based-testing",
+    "quickcheck",
+    "invariants",
+    "mutation-testing",
+    "demillo",
+    "test-quality",
+    "coverage",
+    "oracle"
+  ]
+}
