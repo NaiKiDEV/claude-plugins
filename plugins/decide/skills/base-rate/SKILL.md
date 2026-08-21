@@ -107,7 +107,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/hypotheses`.** Reinforcing. Where two explanations tie on evidence, how often each has actually been the cause is a legitimate tiebreak and is stated as one.
 - **`/premortem`.** Reinforcing. The class's failures are the causes, already observed rather than imagined, which makes them the strongest entries on the list.
 - **`/quit`.** Reinforcing. How long class members ran before being abandoned, and how many were rescued after passing this point, is the evidence that decides.
-- **`/calibrated`.** Reinforcing. A base rate drawn from real class members supports a higher confidence level than an estimate, and the count is what justifies it.
+- **`/calibrated`.** Reinforcing, if the `dialect` plugin is installed. A base rate drawn from real class members supports a higher confidence level than an estimate, and the count is what justifies it.
 - **`/who` and `/when`.** Reinforcing, if the `questions` plugin is installed. Both dig into the same history this skill needs.
 
 ## Before you send

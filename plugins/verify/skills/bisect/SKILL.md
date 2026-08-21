@@ -107,10 +107,10 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 ## Composes with
 
 - **`/repro`.** Sequential, and it comes first. Bisect needs a fast deterministic predicate, and a reduced case is the best predicate available. Reducing before searching usually pays for itself immediately.
-- **`/hypotheses`.** Bisect is often the single observation that separates competing explanations outright, so run it instead of scoring evidence when history is available.
+- **`/hypotheses`.** If the `decide` plugin is installed, bisect is often the single observation that separates competing explanations outright, so run it instead of scoring evidence when history is available.
 - **`/differential`.** Complementary. Bisect names the commit; a differential run against the commit before it shows exactly what the behaviour change is.
-- **`/when`.** Overlapping, and lighter. `/when` dates something that already exists. Use this when the question is which change caused a behaviour, and `/when` when the question is when something landed.
-- **`/base-rate`.** Reinforcing. A bisect result is one data point for how long regressions of this kind survive undetected.
+- **`/when`.** Overlapping, and lighter, if the `questions` plugin is installed. `/when` dates something that already exists. Use this when the question is which change caused a behaviour, and `/when` when the question is when something landed.
+- **`/base-rate`.** Reinforcing, if the `decide` plugin is installed. A bisect result is one data point for how long regressions of this kind survive undetected.
 
 ## Before you send
 

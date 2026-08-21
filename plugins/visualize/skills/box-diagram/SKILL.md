@@ -13,7 +13,7 @@ Render $ARGUMENTS as a box diagram.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever components and relationships fit out of it.
 - The argument is the content itself: a description of components and how they relate, a typed list of parts, or pasted architecture notes. Use it directly.
-- The argument names something else, such as a file, "the auth flow", or "the deployment pipeline": locate it first with Read, Grep, or Glob, the way `/where` or `/how` would, then extract the nodes and edges from what you find.
+- The argument names something else, such as a file, "the auth flow", or "the deployment pipeline": locate it first with Read, Grep, or Glob, then extract the nodes and edges from what you find.
 - Never invent nodes or edges to fill the shape. If the source does not map cleanly onto components and relationships, say what was inferred, or say the fit is poor and suggest `state-machine`, `tree`, or another visualize skill instead of forcing it.
 
 ## Schema

@@ -13,7 +13,7 @@ Render $ARGUMENTS as a vertical timeline.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever dated or ordered sequence fits out of it.
 - The argument IS the content, a described sequence of events: use it directly.
-- The argument NAMES something else, a file, "the project milestones", "the release history": locate it first with Read, Grep, or Glob the way `/where` or `/how` would, then extract the events.
+- The argument NAMES something else, a file, "the project milestones", "the release history": locate it first with Read, Grep, or Glob, then extract the events.
 - Never invent events to fill the shape. If the source has no dated or ordered sequence to extract, say what was inferred, or say the fit is poor and point at a better-suited visualize skill (a list or a table) instead of forcing it.
 
 ## Schema

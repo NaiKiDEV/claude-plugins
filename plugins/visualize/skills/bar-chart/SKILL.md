@@ -13,7 +13,7 @@ Render $ARGUMENTS as a horizontal bar chart.
 
 - **No argument.** The target is the last substantive assistant message in the conversation, not this invocation. Pull whatever labeled numeric values fit a bar chart out of it.
 - **The argument is the content itself**, numbers or values described or pasted directly. Use them as given.
-- **The argument names something else**, a file, "the benchmark results", "last quarter's numbers by region". Locate it first with Read, Grep, or Glob the way `/where` or `/how` would, then extract labels and values.
+- **The argument names something else**, a file, "the benchmark results", "last quarter's numbers by region". Locate it first with Read, Grep, or Glob, then extract labels and values.
 - Never invent numbers to fill the shape. If the source does not map cleanly to labeled non-negative values, say what was inferred, or say the fit is poor and point to a better-suited visualize skill (a table for mixed columns, a matrix for a comparison grid) instead of forcing it.
 
 ## Schema

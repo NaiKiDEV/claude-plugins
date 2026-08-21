@@ -102,7 +102,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 ## Composes with
 
 - **`/base-rate`.** The opposing method, and they should be run together on any estimate that matters. This builds the answer up from the parts, which is the inside view. That looks up what happened the last several times, which is the outside view. Where they disagree, **the base rate wins by default**, because building up from parts systematically omits whole categories of work. Use this to explain the gap, not to overrule it.
-- **`/calibrated`.** Reinforcing. The estimate is a judgment, so its confidence level reports the quality of the factor sources rather than the width of the range.
+- **`/calibrated`.** Reinforcing, if the `dialect` plugin is installed. The estimate is a judgment, so its confidence level reports the quality of the factor sources rather than the width of the range.
 - **`/tradeoff`.** Reinforcing. A criterion that needs a number takes an estimate with a stated range rather than a score out of five.
 - **`/premortem`.** Different questions. This asks how big. That asks how it fails.
 

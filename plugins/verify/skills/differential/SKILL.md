@@ -98,8 +98,8 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/bisect`.** Complementary. Bisect names the commit; this shows what the behaviour change actually is, by comparing across that commit.
 - **`/boundary`.** Reinforcing, and it should feed the generator. Random inputs cluster in the middle of every class, so a generator seeded with the boundary values finds differences that uniform sampling will not.
 - **`/property`.** Adjacent. A property is an oracle you state; this is an oracle you borrow. Where you can state the property, prefer it, because it survives the old implementation being deleted.
-- **`/reversible`.** Reinforcing. Differential agreement is what converts a risky rewrite into a reversible one, because it is the evidence that lets you keep the old path until you do not need it.
-- **`/redteam`.** Sequential, and this comes first. Where the claim is that a change alters nothing, run this rather than attacking the argument: a question evidence can settle should not be debated.
+- **`/reversible`.** Reinforcing, if the `decide` plugin is installed. Differential agreement is what converts a risky rewrite into a reversible one, because it is the evidence that lets you keep the old path until you do not need it.
+- **`/redteam`.** Sequential, if the `decide` plugin is installed, and this comes first. Where the claim is that a change alters nothing, run this rather than attacking the argument: a question evidence can settle should not be debated.
 
 ## Before you send
 

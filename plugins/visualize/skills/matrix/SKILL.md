@@ -13,7 +13,7 @@ Render $ARGUMENTS as a bordered comparison matrix.
 
 - **No argument.** The target is the last substantive assistant message in the conversation, not this invocation. Pull whatever row-by-column comparison fits out of it.
 - **The argument is the content itself**, a described comparison or pasted rows and columns. Use it directly.
-- **The argument names something else**, a file, "the feature comparison", "the plan matrix". Locate it first with Read, Grep, or Glob the way `/where` or `/how` would, then extract rows and columns.
+- **The argument names something else**, a file, "the feature comparison", "the plan matrix". Locate it first with Read, Grep, or Glob, then extract rows and columns.
 - Never invent cells to fill the shape. If the source does not map cleanly to a row-by-column grid, say what was inferred, or say the fit is poor and point to a better-suited visualize skill (a table for a single list of records, a bar-chart for magnitudes) instead of forcing it.
 
 ## Schema

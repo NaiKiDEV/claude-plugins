@@ -103,10 +103,10 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 ## Composes with
 
 - **`/bisect`.** Complementary halves of one investigation. This finds what is minimal, that finds when it entered. Run this first, because bisect needs a fast deterministic predicate and the minimal case is exactly that.
-- **`/hypotheses`.** Sequential, and this is the observation that closes it. ACH ends by naming the cheapest observation that separates the surviving explanations. Reduction is often that observation, and the removed parts eliminate hypotheses wholesale.
+- **`/hypotheses`.** Sequential, if the `decide` plugin is installed, and this is the observation that closes it. ACH ends by naming the cheapest observation that separates the surviving explanations. Reduction is often that observation, and the removed parts eliminate hypotheses wholesale.
 - **`/property`.** Reinforcing. A property-based failure arrives pre-shrunk by the framework, so run this only where the framework's shrinker stopped somewhere unhelpful.
 - **`/differential`.** The minimal case makes a good differential input once it exists.
-- **`/why` and `/how`.** Run this before either. Explaining a failure you have not reduced explains the wrong thing.
+- **`/why` and `/how`.** If the `questions` plugin is installed, run this before either. Explaining a failure you have not reduced explains the wrong thing.
 
 ## Before you send
 

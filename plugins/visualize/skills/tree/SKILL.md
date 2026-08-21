@@ -13,7 +13,7 @@ Render $ARGUMENTS as a tree using standard Unicode box-drawing connectors.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever single-rooted hierarchy fits out of it: an org chart, a taxonomy, a decision tree, a category breakdown.
 - The argument is the content itself, such as a pasted outline, a typed description, or a list with implied nesting. Use it directly.
-- The argument names something else, such as "the module structure" or "the team org chart". Locate it first the way `/where` or `/how` would, with Read, Grep, or Glob, then extract the hierarchy.
+- The argument names something else, such as "the module structure" or "the team org chart". Locate it first with Read, Grep, or Glob, then extract the hierarchy.
 - Never invent nodes to fill the shape. If the source does not map cleanly onto a single-rooted hierarchy, say what was inferred, or say the fit is poor and point at a better-suited visualize skill instead of forcing it. A real directory on disk is served better by `/visualize:file-tree`, which walks the filesystem directly.
 
 ## Schema

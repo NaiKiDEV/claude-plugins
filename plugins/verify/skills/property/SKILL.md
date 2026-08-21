@@ -98,7 +98,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/repro`.** Usually unnecessary after a property failure, since the framework shrinks. Reach for it when the shrinker stops somewhere unhelpful, which happens with stateful or constrained generators.
 - **`/differential`.** The oracle pattern in this catalogue is a differential test with the comparison stated as a property. Prefer a property where you can state one, because it outlives the reference implementation.
 - **`/mutate`.** Sequential. Properties are the strongest defence against surviving mutants, so run that afterwards to see whether they earned it.
-- **`/normative`.** Reinforcing on the output. A property is a `MUST` that executes, and the properties you could not state are the requirements nobody wrote.
+- **`/normative`.** Reinforcing on the output, if the `dialect` plugin is installed. A property is a `MUST` that executes, and the properties you could not state are the requirements nobody wrote.
 
 ## Before you send
 

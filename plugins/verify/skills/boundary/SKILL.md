@@ -99,7 +99,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/fuzz`, when present.** Partitioning finds the classes you thought of. Fuzzing finds the ones you did not. Neither replaces the other.
 - **`/mutate`.** Sequential and reinforcing. This says which classes are untested; that says whether the tests for the covered classes actually assert anything.
 - **`/repro`.** Reversed direction. This derives cases from the space, that reduces a case you already have.
-- **`/normative`.** Reinforcing when the specification is the thing in doubt. A class with no defined behaviour is a `MUST` nobody wrote.
+- **`/normative`.** Reinforcing when the specification is the thing in doubt, if the `dialect` plugin is installed. A class with no defined behaviour is a `MUST` nobody wrote.
 
 ## Before you send
 

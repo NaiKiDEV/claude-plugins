@@ -13,7 +13,7 @@ Render $ARGUMENTS as a sequence diagram.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever exchange fits out of it.
 - Argument is the content itself, such as a described interaction between parties: use it directly.
-- Argument names something else, such as a file, "the login flow", or "the checkout process": locate it first (Read, Grep, Glob) the way `/where` or `/how` would, then extract the participants and messages.
+- Argument names something else, such as a file, "the login flow", or "the checkout process": locate it first (Read, Grep, Glob), then extract the participants and messages.
 - Never invent participants or messages to fill the shape. If the source does not map cleanly onto participants exchanging messages, say what was inferred, or say the fit is poor and point at `flowchart` instead of forcing it: a single actor working through branching steps belongs there, an exchange between parties belongs here.
 
 ## Schema

@@ -13,7 +13,7 @@ Render $ARGUMENTS as a file tree using standard Unicode box-drawing connectors.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever file or directory structure fits out of it.
 - The argument is the content itself, such as pasted output, a typed description, or a directory listing. Use it directly.
-- The argument names something else, such as an actual directory in the project or "the module structure". Locate it first the way `/where` or `/how` would, with Read, Grep, or Glob, then extract the structure. When the argument names a real path in the project, walking the actual directory rather than guessing at its contents is strongly preferred.
+- The argument names something else, such as an actual directory in the project or "the module structure". Locate it first with Read, Grep, or Glob, then extract the structure. When the argument names a real path in the project, walking the actual directory rather than guessing at its contents is strongly preferred.
 - Never invent entries to fill the shape. If the source does not map cleanly onto a file tree, say what was inferred, or say the fit is poor and point at a better-suited visualize skill instead of forcing it.
 
 ## Schema

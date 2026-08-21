@@ -111,7 +111,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/tradeoff`.** Reinforcing. The criteria and weights are the Context, and the losing options are the alternatives.
 - **`/premortem`.** Reinforcing. Accepted risks belong in Consequences, since an accepted risk that was never written down is indistinguishable later from one nobody saw.
 - **`/why`.** Complementary, if the `questions` plugin is installed. That reconstructs reasoning that was never recorded. This is how it stops being necessary.
-- **`/diataxis`.** No conflict. An ADR is explanation, and it is exempt from being split, since the format is fixed by convention.
+- **`/diataxis`.** No conflict, if the `dialect` plugin is installed. An ADR is explanation, and it is exempt from being split, since the format is fixed by convention.
 
 ## Before you send
 

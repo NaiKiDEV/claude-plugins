@@ -13,7 +13,7 @@ Render $ARGUMENTS as a kanban board.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever set of tasks by status fits out of it.
 - The argument IS the content, a described set of tasks grouped by status: use it directly.
-- The argument NAMES something else, a file, "the sprint board", "the task list": locate it first with Read, Grep, or Glob the way `/where` or `/how` would, then extract the columns.
+- The argument NAMES something else, a file, "the sprint board", "the task list": locate it first with Read, Grep, or Glob, then extract the columns.
 - Never invent cards to fill the shape. If the source does not map cleanly onto columns and cards, say what was inferred, or say the fit is poor and point at a better-suited visualize skill (a list or a table) instead of forcing it.
 
 ## Schema

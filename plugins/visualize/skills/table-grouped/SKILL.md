@@ -13,7 +13,7 @@ Render $ARGUMENTS as a grouped table.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever groups and rows fit out of it.
 - The argument is the content itself: pasted data, a typed list, or a described set of grouped rows. Use it directly.
-- The argument names something else, such as a file, a decision, or "the pricing tiers": locate it first with Read, Grep, or Glob, the way `/where` or `/how` would, then extract the groups and rows from what you find.
+- The argument names something else, such as a file, a decision, or "the pricing tiers": locate it first with Read, Grep, or Glob, then extract the groups and rows from what you find.
 - Never invent data to fill the shape. If the source has no natural grouping, do not manufacture one. Say the fit is poor and suggest plain `table` instead. If the source's groups map cleanly but subtotals or a grand total are not present in the source, leave those fields out rather than computing or guessing numbers.
 
 ## Schema

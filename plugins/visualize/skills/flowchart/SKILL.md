@@ -13,7 +13,7 @@ Render $ARGUMENTS as a flowchart.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever structure fits out of it.
 - Argument is the content itself, such as a described process with steps and decision points: use it directly.
-- Argument names something else, such as a file, "the login flow", or "the checkout process": locate it first (Read, Grep, Glob) the way `/where` or `/how` would, then extract the structure.
+- Argument names something else, such as a file, "the login flow", or "the checkout process": locate it first (Read, Grep, Glob), then extract the structure.
 - Never invent steps to fill the shape. If the source does not map cleanly onto start, process, decision, and end steps, say what was inferred, or say the fit is poor and point at `sequence` instead of forcing it: a single flow of steps and decisions belongs here, an exchange of messages between two or more parties does not.
 
 ## Schema

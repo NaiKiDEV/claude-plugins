@@ -110,12 +110,12 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 ## Composes with
 
 - **`/premortem`.** Different times. This explains something that already happened. That anticipates something that has not.
-- **`/calibrated`.** Reinforcing. The surviving hypothesis is a judgment, so state it with a probability word and a confidence level, and give the runners-up their own.
+- **`/calibrated`.** Reinforcing, if the `dialect` plugin is installed. The surviving hypothesis is a judgment, so state it with a probability word and a confidence level, and give the runners-up their own.
 - **`/redteam`.** Sequential. Run this first, then point that at the surviving hypothesis to find the reading of the evidence you settled into.
 - **`/base-rate`.** Reinforcing. Where two hypotheses tie on evidence, how often each has been the cause historically is a legitimate tiebreak, and it is stated as one rather than smuggled in as judgment.
-- **`/repro`.** Sequential, in both directions. Where the failure can be reduced, reduce it instead of scoring evidence, since this skill is for symptoms with no local repro. Where it cannot be reduced yet, reduction is frequently the cheapest observation this closes on, and everything it removes eliminates hypotheses wholesale.
-- **`/bisect`.** Sequential, and it is the discriminating observation whenever history is available. Bisection separates surviving hypotheses outright, which is cheaper than finding more evidence to score against them.
-- **`/hub`.** The discriminating test is a well-formed spoke brief: one claim, one check, a cold-start reader.
+- **`/repro`.** Sequential, in both directions, if the `verify` plugin is installed. Where the failure can be reduced, reduce it instead of scoring evidence, since this skill is for symptoms with no local repro. Where it cannot be reduced yet, reduction is frequently the cheapest observation this closes on, and everything it removes eliminates hypotheses wholesale.
+- **`/bisect`.** Sequential, if the `verify` plugin is installed, and it is the discriminating observation whenever history is available. Bisection separates surviving hypotheses outright, which is cheaper than finding more evidence to score against them.
+- **`/hub`.** If the `hub` plugin is installed, the discriminating test is a well-formed spoke brief: one claim, one check, a cold-start reader.
 
 ## Before you send
 

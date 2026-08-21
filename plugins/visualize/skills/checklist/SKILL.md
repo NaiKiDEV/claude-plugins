@@ -13,7 +13,7 @@ Render $ARGUMENTS as a plain-ASCII checklist.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever structure fits out of it.
 - Argument is the content itself, such as pasted data, a typed description, or a list of tasks: use it directly.
-- Argument names something else, such as a file, a decision, or "the launch tasks": locate it first (Read, Grep, Glob) the way `/where` or `/how` would, then extract the structure.
+- Argument names something else, such as a file, a decision, or "the launch tasks": locate it first (Read, Grep, Glob), then extract the structure.
 - Never invent data to fill the shape. If the source does not map cleanly onto a checklist, say what was inferred, or say the fit is poor and point at a better-suited visualize skill instead of forcing it. States must come from the source, not a guess: if completion is not stated anywhere, do not assign `done`.
 
 ## Schema

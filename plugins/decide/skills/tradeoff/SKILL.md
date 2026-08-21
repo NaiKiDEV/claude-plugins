@@ -120,7 +120,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/base-rate`.** Reinforcing. Where a criterion is "how often does this go wrong", a reference class beats a `+` or a `-`.
 - **`/redteam`.** Sequential. Point it at the criteria and the weights rather than at the winner, since that is where the answer was actually decided.
 - **`/adr`.** Reinforcing. The criteria, the weights, and the rejected options are the ADR's Context and Consequences.
-- **`/calibrated`.** Reinforcing. A `?` cell is an open question, and where it must be estimated it takes a probability word rather than a number that looks measured.
+- **`/calibrated`.** Reinforcing, if the `dialect` plugin is installed. A `?` cell is an open question, and where it must be estimated it takes a probability word rather than a number that looks measured.
 
 ## Before you send
 

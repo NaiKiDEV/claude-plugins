@@ -13,7 +13,7 @@ Render $ARGUMENTS as a state machine.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever states and transitions fit out of it.
 - The argument is the content itself: a description of states and how they transition, a typed list, or pasted state-machine notes. Use it directly.
-- The argument names something else, such as a file, "the order lifecycle", or "the auth flow": locate it first with Read, Grep, or Glob, the way `/where` or `/how` would, then extract the states and transitions from what you find.
+- The argument names something else, such as a file, "the order lifecycle", or "the auth flow": locate it first with Read, Grep, or Glob, then extract the states and transitions from what you find.
 - Never invent states or transitions to fill the shape. If the source does not map cleanly onto states and transitions, say what was inferred, or say the fit is poor and suggest `box-diagram`, `tree`, or another visualize skill instead of forcing it.
 
 ## Schema

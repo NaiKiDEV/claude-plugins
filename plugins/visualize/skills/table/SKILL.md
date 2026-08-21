@@ -13,7 +13,7 @@ Render $ARGUMENTS as a table.
 
 - No argument: the target is the last substantive assistant message in the conversation, not this invocation. Pull whatever rows and columns fit out of it.
 - The argument is the content itself: pasted data, a typed list, or a described set of rows. Use it directly.
-- The argument names something else, such as a file, a decision, or "the pricing tiers": locate it first with Read, Grep, or Glob, the way `/where` or `/how` would, then extract the rows and columns from what you find.
+- The argument names something else, such as a file, a decision, or "the pricing tiers": locate it first with Read, Grep, or Glob, then extract the rows and columns from what you find.
 - Never invent data to fill the shape. If the source has fewer or more columns than it looks like it wants, use what is actually there. If the source does not map cleanly onto a flat table, say what was inferred, or say the fit is poor and suggest `table-grouped` or another visualize skill instead of forcing it.
 
 ## Schema

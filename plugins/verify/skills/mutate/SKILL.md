@@ -98,9 +98,9 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/boundary`.** Reinforcing, and the pair is the strongest in the plugin. That predicts which classes are untested from the input space; this proves which lines are unconstrained from the code. A surviving conditional-boundary mutant on a line that partitioning also flagged is a confirmed gap.
 - **`/property`.** Sequential, and this is the check on that. Properties are the strongest defence against surviving mutants, so run this afterwards to find out whether they earned their cost.
 - **`/differential`.** Adjacent. Both perturb something and compare, but that changes the implementation and holds the tests fixed, while this changes the code and asks whether the tests move.
-- **`/redteam`.** The same stance, applied to a different object. That attacks an argument, this attacks a test suite.
-- **`/premortem`.** Reinforcing, on detectability. That ranks causes by whether anyone would notice in time, and a surviving mutant is a direct answer for the causes a test would have caught.
-- **`/quit`.** Reinforcing, occasionally. A file whose mutation score does not move after real effort is evidence about the design, not just about the tests.
+- **`/redteam`.** The same stance, applied to a different object, if the `decide` plugin is installed. That attacks an argument, this attacks a test suite.
+- **`/premortem`.** Reinforcing, on detectability, if the `decide` plugin is installed. That ranks causes by whether anyone would notice in time, and a surviving mutant is a direct answer for the causes a test would have caught.
+- **`/quit`.** Reinforcing, occasionally, if the `decide` plugin is installed. A file whose mutation score does not move after real effort is evidence about the design, not just about the tests.
 
 ## Before you send
 
