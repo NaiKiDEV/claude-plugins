@@ -117,9 +117,36 @@ Each skill takes explicit content, a file or topic to locate first, or nothing, 
 /plugin install visualize@naikidev
 ```
 
+### [`decide`](./plugins/decide)
+
+Ten decision procedures. Each skill runs one published protocol against a judgment already on the table, structuring it without making it. Manual-only, like the plugins above, and read-only apart from `/adr`.
+
+| Skill | Purpose |
+| --- | --- |
+| `/reversible [decision]` | Classify the decision by what it costs to undo, before spending anything on making it: the undo named as an operation, the window before the door closes, and a recommendation on how much deliberation it is worth, including when the answer is none. |
+| `/options [decision]` | Generate genuinely different approaches before evaluating any, using the vanishing options test and the do-nothing baseline, with decoys cut and each option's opportunity cost named. |
+| `/tradeoff [options]` | Score options against criteria and weights fixed and printed before any scoring starts, musts screening separately from weighted wants, with unknowns kept as unknowns and the single change that would flip the result named. |
+| `/hypotheses [symptom]` | List every explanation before scoring any evidence, score by what each item rules out rather than what it supports, discount the evidence that fits everything, and close on the cheapest observation that separates the survivors. |
+| `/premortem [plan]` | Assume the plan already failed and explain why, covering the second failure as well as the first: it worked and was still the wrong thing. Causes are ranked on detectability as well as likelihood, and each carries a leading indicator. |
+| `/redteam [plan or claim]` | Attack it on its own terms: the load-bearing assumption named and checked, the strongest objection steelmanned, seven fixed attack positions worked through, and findings sorted fatal, structural, contingent, noted. |
+| `/fermi [quantity]` | Turn "it depends" into a range: three to six factors, each with a low, a high, and a tag saying whether it was counted or guessed, rounded hard, closing on the factor the answer is hostage to and what resolving it costs. |
+| `/base-rate [estimate]` | Answer from what happened the last several times instead of from the details of this time, with the class built out of `git log` and the pull requests rather than recalled, and the spread and the tail reported rather than an average. |
+| `/quit [work in progress]` | Decide whether to keep going, with the sunk cost named once and set aside, the comparison run forward against a named alternative, the middle options present, and a new criterion set whichever way it goes. Run before the work instead, and it sets the kill criteria. |
+| `/adr [decision]` | Write the decision into the repository in the project's own ADR convention: the forces as they were then, the alternatives with one line each on why they lost, the costs stated plainly, and the condition that should reopen it. |
+
+The shared rule is *check before you deliberate*. A protocol applied to a question one command would settle costs more than the answer and lends a decided look to something that was never in doubt, so every skill opens by asking what is checkable here and now, and reports a fact instead. Nothing is invented to fill a shape: an unknown cell stays unknown, a thin reference class is reported as thin, and a red team that found nothing says so.
+
+They sequence. `/reversible` is the cheapest and gates the rest. `/options` precedes `/tradeoff`, since scoring a set of one is the failure both exist to prevent. Two pairs genuinely conflict and each declares which side wins: `/fermi` and `/base-rate` are the inside and outside views of one estimate, and the base rate wins by default, while `/premortem` and `/redteam` attack the same plan at its outcome and at its reasoning.
+
+Nine of the ten produce a recommendation you can reject and none decides anything. `/adr` writes one file, into the directory the project already keeps decision records in.
+
+```
+/plugin install decide@naikidev
+```
+
 ## Naming
 
-Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name. This matters most for `visualize`, whose skill names (`table`, `tree`, `list`) are short, common words other plugins are likely to also claim.
+Skill names resolve bare: `/why`, `/ste`, and so on. Prefix with the plugin name, as in `/questions:why` or `/dialect:ste`, when another installed plugin already claims the same name. This matters most for `visualize`, whose skill names (`table`, `tree`, `list`) are short, common words other plugins are likely to also claim, and for `decide`, where `/options`, `/quit`, and `/tradeoff` are the same kind of name.
 
 ## License
 

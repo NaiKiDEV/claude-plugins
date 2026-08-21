@@ -6,6 +6,7 @@
 | [`dialect`](./dialect) | Ten controlled-language modes constraining the vocabulary, sentence shape, evidence, and order of what Claude writes: `/ste` `/plain` `/ubiquitous` `/calibrated` `/normative` `/bluf` `/pyramid` `/sbar` `/comments` `/diataxis`. |
 | [`hub`](./hub) | Hub-and-spoke orchestration: `/hub` decomposes a task, gates the plan, dispatches spokes, and verifies what comes back. |
 | [`visualize`](./visualize) | Fourteen renderers, Unicode box-drawing by default with a plain-ASCII exception for list/checklist: `/table` `/table-grouped` `/list` `/checklist` `/file-tree` `/tree` `/box-diagram` `/state-machine` `/flowchart` `/sequence` `/timeline` `/kanban` `/bar-chart` `/matrix`. |
+| [`decide`](./decide) | Ten decision procedures, each running one published protocol against a judgment already on the table: `/reversible` `/options` `/tradeoff` `/hypotheses` `/premortem` `/redteam` `/fermi` `/base-rate` `/quit` `/adr`. |
 
 Each plugin lives in its own folder:
 
