@@ -92,6 +92,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/options`, `/tradeoff`, `/premortem`.** Sequential, and this gates all three. Its output is the answer to whether running them is worth it.
 - **`/quit`.** Different questions about the same axis. This asks what it costs to walk back. That asks whether to walk back now.
 - **`/adr`.** Reinforcing, and this is the trigger. A one-way door is exactly the decision that deserves a record.
+- **`/differential`.** Reinforcing, and it is a conversion of the kind above. Agreement between the old path and the new is the evidence that lets you keep the old one running until you no longer need it, which turns a cutover into a two-way door.
 - **`/hub`.** Reinforcing. Run this on the decomposition: the one-way pieces are the ones that need verification before the reversible work is built on them.
 
 ## Before you send

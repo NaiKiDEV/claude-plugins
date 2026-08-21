@@ -112,6 +112,8 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/hypotheses`.** Sequential. Run that first on a diagnosis, then point this at the surviving explanation.
 - **`/tradeoff`.** Sequential. Point this at the criteria and the weights, not the winner. The answer was decided there.
 - **`/options`.** Different questions. That asks what else exists. This asks what is wrong with the chosen one.
+- **`/differential`.** Reinforcing, and it should pre-empt this. Where the claim under attack is that a change alters nothing, that settles it with evidence, and a settled question does not need attacking.
+- **`/mutate`.** The same stance, different object. This attacks an argument. That attacks a test suite, by introducing faults and finding out whether anything objects.
 - **`/hub`.** Reinforcing, and this is a natural spoke. `hub-verifier` runs one claim adversarially, which is this skill scoped to a single target with a fresh context, and a fresh context is genuinely better at it than a session that produced the plan.
 - **`/calibrated`.** Reinforcing. A steelmanned objection you judge does not hold is a judgment, so it takes a probability word and a confidence level.
 

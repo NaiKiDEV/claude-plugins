@@ -107,6 +107,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/redteam`.** Different targets. This attacks the plan's outcome. That attacks the plan's reasoning, including the reasoning in this premortem.
 - **`/reversible`.** Sequential and cheap. Classify the decision first. A two-way door rarely justifies a full premortem, and a one-way door always does.
 - **`/quit`.** Reinforcing, and the leading indicators are the raw material. An indicator with a threshold and a decision attached is a kill criterion.
+- **`/mutate`.** Reinforcing, on detectability. This ranks causes by whether you would notice in time, and that answers the same question about the test suite: not whether the tests run, but whether they would object if the code were wrong.
 - **`/hub`.** Run this on the decomposition before the gate. The seam failures it surfaces are exactly the ones spoke briefs are least likely to catch.
 
 ## Before you send

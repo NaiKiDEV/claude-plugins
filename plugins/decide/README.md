@@ -33,6 +33,8 @@ Nine of the ten produce a recommendation the user can reject and none of them de
 
 **Check before you deliberate.** Every skill opens with the same rule, because it is the one that keeps the rest from becoming ceremony. A protocol applied to a question one command would settle costs more than the answer and lends a decided look to something that was never in doubt. Each skill states what belongs to it and what should have been a `grep`: `/fermi` counts before it estimates, `/hypotheses` is for symptoms with no local repro, `/reversible` reads the migration rather than assuming it has a down step.
 
+Where the check is itself a procedure rather than one command, the [`verify`](../verify) plugin runs it: `/repro` reduces the failure, `/bisect` finds the change that caused it, and `/differential` settles whether a rewrite altered anything. Deliberating is what you do when no observation is available, so a decision procedure should hand off to one whenever it is.
+
 **Nothing invented to fill a shape.** A protocol that needs options, evidence, a base rate, or a number does not get them fabricated when they do not exist. An unknown cell stays unknown, a thin reference class is reported as thin in the first line, and a red team that found nothing says so.
 
 **Two entry points.** With an argument, a skill runs against that target. With none, it takes the open decision in the conversation and restates it in one line before starting, so a wrong reading is caught before the work rather than after. With nothing on the table, it says so and stops.
