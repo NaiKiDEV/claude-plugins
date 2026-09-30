@@ -1,8 +1,7 @@
 ---
 name: differential
-description: Run two implementations against the same inputs and compare, with the accepted differences declared before the run. The refactor safety net, and the way to check a rewrite against the thing it replaces.
+description: Use when a change claims behaviour is unchanged and a runnable reference version exists, such as the commit before a refactor or the implementation a rewrite replaces, when the user asks or as a step inside /hub. Not for changes meant to alter behaviour throughout, or where only one side can run. Runs two implementations against the same inputs and compares, with the accepted differences declared before the run. The refactor safety net, and the way to check a rewrite against the thing it replaces.
 argument-hint: [what to compare, or the refactor to check]
-disable-model-invocation: true
 allowed-tools: Bash Read Grep Glob
 disallowed-tools: Edit Write NotebookEdit
 ---
@@ -98,8 +97,10 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/bisect`.** Complementary. Bisect names the commit; this shows what the behaviour change actually is, by comparing across that commit.
 - **`/boundary`.** Reinforcing, and it should feed the generator. Random inputs cluster in the middle of every class, so a generator seeded with the boundary values finds differences that uniform sampling will not.
 - **`/property`.** Adjacent. A property is an oracle you state; this is an oracle you borrow. Where you can state the property, prefer it, because it survives the old implementation being deleted.
+- **`/characterize`.** The alternative, where no runnable old version exists. That pins what the code does now as lasting tests before the change, and they keep checking after the old version is gone; this compares old against new directly and leaves no tests behind.
 - **`/reversible`.** Reinforcing, if the `decide` plugin is installed. Differential agreement is what converts a risky rewrite into a reversible one, because it is the evidence that lets you keep the old path until you do not need it.
 - **`/redteam`.** Sequential, if the `decide` plugin is installed, and this comes first. Where the claim is that a change alters nothing, run this rather than attacking the argument: a question evidence can settle should not be debated.
+- **`/hub`.** Reinforcing, if the `hub` plugin is installed. A spoke that claims its change alters nothing is making exactly the claim this settles, so in a `/hub` run compare against `HEAD` once every writing spoke has landed, and trace a difference to its spoke through the write sets.
 
 ## Before you send
 

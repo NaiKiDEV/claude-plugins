@@ -21,7 +21,7 @@ Reduce only what the brief names. If reduction reveals that the failure is in a 
 1. **Build the oracle.** One command, one exit code, matching the specific failure signal rather than any non-zero exit. State what you matched on.
 2. **Prove the oracle disagrees.** It must exit `0` on the unreduced case and non-zero on an empty or trivial one. An oracle that fires on everything reduces to nothing and reports it as minimal.
 3. **Measure determinism.** Run the oracle several times on the unreduced case. Report the flake rate. If it is not deterministic, either pin it or use repetition, and say which.
-4. **Reduce**, using `scripts/ddmin.js` from the `repro` skill for line-oriented input, or the same bisecting discipline by hand otherwise.
+4. **Reduce**, using `${CLAUDE_PLUGIN_ROOT}/skills/repro/scripts/ddmin.js` for line-oriented input, or the same bisecting discipline by hand otherwise.
 5. **Confirm from clean.** Re-run the minimal case in a fresh state. A case that fails only inside the reduction run is not a repro.
 
 ## Do not

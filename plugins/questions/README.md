@@ -1,6 +1,6 @@
 # questions
 
-Manual-only interrogatives for work in progress. Six skills that explain or locate, none of which change anything.
+Interrogatives for work in progress, all manual except `/what`. Six skills that explain or locate, none of which change anything.
 
 | Skill | Question it answers |
 | --- | --- |
@@ -15,7 +15,7 @@ Manual-only interrogatives for work in progress. Six skills that explain or loca
 
 These hold across every skill in the plugin.
 
-**Manual only.** Every skill sets `disable-model-invocation: true`. Claude never invokes one on its own. They run when typed, and their descriptions stay out of context until then.
+**Manual, except `/what`.** Five skills set `disable-model-invocation: true`. Claude never invokes one of them on its own. They run when typed, and their descriptions stay out of context until then. `/what` does not, so that where the [`hub`](../hub) plugin is installed, `/hub` can run it over a run's changes and treat its loose ends as seam candidates: a skill with the flag can be invoked only by a user typing its name, and neither the main session nor a subagent can reach it. Its description opens with a narrow trigger and says it applies when the user asks or as a step inside `/hub`.
 
 **Bare names resolve.** Autocomplete resolves `/why`, `/where`, `/what`, `/how`, `/who`, and `/when` directly. Use the `questions:` prefix when another installed plugin already claims one of those names, which is plausible for names this short and generic.
 

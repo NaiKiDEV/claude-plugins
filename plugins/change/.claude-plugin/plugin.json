@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "change",
+  "displayName": "Change",
+  "version": "0.1.0",
+  "description": "Staged interface changes for Claude Code. Ships /parallel-change (Sato's Parallel Change), which turns a change to a signature, type, schema, config key, API, or event whose consumers span several files into expand, migrate, and contract pieces with disjoint write sets, ready to hand to /hub.",
+  "author": {
+    "name": "naikidev",
+    "url": "https://github.com/naikidev"
+  },
+  "repository": "https://github.com/naikidev/claude-plugins",
+  "license": "MIT",
+  "keywords": [
+    "parallel-change",
+    "expand-contract",
+    "expand-and-contract",
+    "sato",
+    "fowler",
+    "strangler-fig",
+    "interface-change",
+    "breaking-change",
+    "backward-compatibility",
+    "api-evolution",
+    "schema-migration",
+    "migration",
+    "deprecation",
+    "refactoring",
+    "call-sites",
+    "planning",
+    "task-decomposition",
+    "orchestration",
+    "handoff"
+  ]
+}

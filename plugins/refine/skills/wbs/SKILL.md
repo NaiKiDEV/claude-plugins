@@ -1,8 +1,7 @@
 ---
 name: wbs
-description: Decompose work by deliverable until every leaf is a work package one owner can finish and one test can close. The 100% rule, so the children of a node sum to exactly the parent, with nothing missing and nothing counted twice.
+description: Use when a task's pieces are not obvious and it needs breaking into a work breakdown with file ownership and a parallel front, when the user asks or as a step inside /hub. Not for a task whose pieces are already clear, or for one item that is merely too big, which is /split. Decomposes work by deliverable until every leaf is a work package one owner can finish and one test can close. The 100% rule, so the children of a node sum to exactly the parent, with nothing missing and nothing counted twice.
 argument-hint: [the deliverable or project to decompose, or nothing to use what is on the table]
-disable-model-invocation: true
 disallowed-tools: Edit Write NotebookEdit
 ---
 

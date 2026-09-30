@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "questions",
   "displayName": "Questions",
-  "version": "0.1.0",
-  "description": "Manual-only interrogatives for work in progress: /why /where /what /how /who /when. Claims carry checkable provenance instead of a confidence score, and nothing here writes.",
+  "version": "0.2.0",
+  "description": "Interrogatives for work in progress: /why /where /what /how /who /when. All are manual except /what, which /hub can run over the changes a run made. Claims carry checkable provenance instead of a confidence score, and nothing here writes.",
   "author": {
     "name": "naikidev",
     "url": "https://github.com/naikidev"

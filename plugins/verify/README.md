@@ -1,6 +1,6 @@
 # verify
 
-Verification procedures for Claude Code. Each skill runs one published protocol to produce evidence about code that already exists: a failure that needs a shape, a regression with an unknown origin, a function whose input space was never mapped, a refactor that claims to change nothing, or a test suite nobody trusts.
+Verification procedures for Claude Code. Each skill runs one published protocol to produce evidence about code that already exists: a failure that needs a shape, a regression with an unknown origin, a function whose input space was never mapped, a refactor that claims to change nothing, a test suite nobody trusts, or code about to change that no test pins down.
 
 | Skill | Protocol | Question it answers |
 | --- | --- | --- |
@@ -10,6 +10,7 @@ Verification procedures for Claude Code. Each skill runs one published protocol 
 | [`/differential`](#differential) | Differential testing, from McKeeman | Do these two versions agree? |
 | [`/property`](#property) | Property-based testing, from QuickCheck | What is true of every input? |
 | [`/mutate`](#mutate) | Mutation testing, from DeMillo, Lipton, and Sayward | Would the tests notice if this were wrong? |
+| [`/characterize`](#characterize) | Characterization testing, from Feathers | What does this code do now, before I change it? |
 
 ## What these do
 
@@ -21,15 +22,15 @@ Each protocol fixes the order of operations so the observation cannot be corrupt
 
 ## Conventions
 
-**Manual only.** Every skill sets `disable-model-invocation: true`. Claude never starts a verification run on its own, and the descriptions stay out of context until a skill is called.
+**Manual by default, with three callable by the model.** Four skills set `disable-model-invocation: true`, so Claude never starts them on its own and their descriptions stay out of context until one is called. `/characterize`, `/differential`, and `/mutate` do not, so that where the [`hub`](../hub) plugin is installed, `/hub` can call them as a step in a run: a skill with the flag can be invoked only by a user typing its name, and neither the main session nor a subagent can reach it. Each of the three opens its description with a narrow trigger and says it applies when the user asks or as a step inside `/hub`. `/mutate`'s also says it is never for routine use, because it runs the suite once per mutant.
 
 **Check before you verify.** Every skill opens with the same rule, because a protocol applied to a question one command would settle costs more than the answer. `/bisect` tries `git log -S` and `blame` first and says so. `/repro` reads the stack trace before reducing. `/mutate` refuses to spend an hour proving that a file with no tests has no tests.
 
-**Read-only, with two exceptions that the scripts own.** Four skills hold `disallowed-tools: Edit Write NotebookEdit`. `/property` may create new test files and nothing else. `/mutate` rewrites the file under test, and the bundled script owns the entire apply-run-restore loop so no editing tool ever touches your source.
+**Read-only, with three exceptions.** Five skills hold `disallowed-tools: Edit Write NotebookEdit`. `/property` and `/characterize` may create new test files and nothing else. `/mutate` rewrites the file under test, and the bundled script owns the entire apply-run-restore loop so no editing tool ever touches your source.
 
 **Nothing invented to fill a shape.** A reduction that did not converge says where it stalled. A differential run with no differences reports what its inputs actually covered, because agreement over inputs that all take one branch is not evidence. A bisect that skipped commits reports a range rather than a commit.
 
-**Sequenced, with declared precedence.** Each skill carries a `Composes with` section. `/repro` comes before `/bisect`, because bisect needs a fast deterministic predicate and a reduced case is the best one available. `/boundary` comes before `/property`, whose generators should be biased by what partitioning found. `/boundary` and `/mutate` approach the same gap from opposite directions and agreeing on a line is a confirmed finding.
+**Sequenced, with declared precedence.** Each skill carries a `Composes with` section. `/repro` comes before `/bisect`, because bisect needs a fast deterministic predicate and a reduced case is the best one available. `/boundary` comes before `/property`, whose generators should be biased by what partitioning found. `/boundary` and `/mutate` approach the same gap from opposite directions and agreeing on a line is a confirmed finding. `/characterize` comes before a change to code no test pins, and `/mutate` comes after it, to measure whether the pinned tests would notice the change.
 
 ## Scripts
 
@@ -104,6 +105,12 @@ Half the findings come from the properties that could not be stated, since an un
 Mutation testing. Coverage measures which lines executed; this measures which faults are detected, which is what anyone asking for coverage actually wanted. It is the sharpest tool here for generated test suites, whose characteristic failure is high coverage with weak assertions.
 
 Survivors are the output, not the score, and each is sorted into a real gap, an equivalent mutant, or behaviour nobody has decided. The score is reported as a relative measure and is never proposed as a target.
+
+### `/characterize`
+
+Characterization testing, from Feathers. Before a change to code that no test reaches, it pins what the code does now as lasting tests, named so nobody mistakes them for a specification. Each expected value comes from a run against a deliberately wrong one rather than from reading the source, and hidden outputs are sensed from test code through a seam.
+
+Behaviour that looks wrong is pinned and listed as an open question, never fixed. The output ends with the exact command that runs the pinned tests, which is the check a later change must keep green, and in a `/hub` run the brief's Check.
 
 ## Install
 

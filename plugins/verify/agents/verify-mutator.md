@@ -1,6 +1,6 @@
 ---
 name: verify-mutator
-description: Mutation spoke dispatched by /mutate. Not for direct selection. Choose it when a mutation run over a file would produce many suite executions whose output is not worth carrying. Returns the survivors, classified, with the assertion each one needs.
+description: Mutation spoke dispatched by /mutate or /hub. Not for direct selection. Choose it when a mutation run over a file would produce many suite executions whose output is not worth carrying. Returns the survivors, classified, with the assertion each one needs.
 tools: Read, Grep, Glob, Bash
 ---
 
@@ -14,7 +14,7 @@ You start cold. You cannot see the conversation that dispatched you. If your bri
 
 You are the only agent in this plugin that causes a tracked file to be rewritten. The script owns the perturbation, and you must not take that over.
 
-- **Use `scripts/mutate.js` from the `mutate` skill.** Never mutate a file with an editing tool. The script's restore-in-`finally`, signal handlers, and on-disk backup are the entire safety contract, and hand-editing bypasses all of it.
+- **Use `${CLAUDE_PLUGIN_ROOT}/skills/mutate/scripts/mutate.js`.** Never mutate a file with an editing tool. The script's restore-in-`finally`, signal handlers, and on-disk backup are the entire safety contract, and hand-editing bypasses all of it.
 - **Never pass `--allow-dirty`.** If the script refuses because the file has uncommitted changes, that refusal is correct. Report it and stop. Do not commit the user's work to get past it.
 - **Confirm restoration.** The script reports whether the file came back byte-identical. If it did not, say so first, loudly, before any findings.
 

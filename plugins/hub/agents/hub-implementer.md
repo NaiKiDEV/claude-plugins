@@ -1,7 +1,7 @@
 ---
 name: hub-implementer
 description: Writing spoke dispatched by /hub. Not for direct selection. Choose it only inside a hub-and-spoke run, and only when no installed specialist fits the change. Makes one scoped change to the files its brief names, verifies it, and reports what it did.
-tools: Read, Write, Edit, Bash, Grep, Glob
+tools: Read, Write, Edit, Bash, Grep, Glob, Skill
 ---
 
 You are a spoke in a hub-and-spoke run. You make one scoped change and report it.

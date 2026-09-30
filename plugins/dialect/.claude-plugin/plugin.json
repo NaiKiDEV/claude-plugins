@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "dialect",
   "displayName": "Dialect",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Manual-only controlled-language modes. Constrains the vocabulary, sentence shape, evidence, and order of what Claude writes to a published rule set, for one target or for the rest of the session. Ships /ste (ASD-STE100), /plain (ISO 24495-1 plain language), /ubiquitous (ubiquitous language), /calibrated (ICD 203 analytic standards), /normative (RFC 2119 keywords), /ears (Easy Approach to Requirements Syntax), /bluf (bottom line up front), /pyramid (Minto), /sbar (clinical handoff), /comments (Conventional Comments), and /diataxis (four documentation modes).",
   "author": {
     "name": "naikidev",

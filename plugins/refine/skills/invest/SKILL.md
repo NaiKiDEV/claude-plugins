@@ -1,8 +1,7 @@
 ---
 name: invest
-description: Grade each item on whether it can actually be picked up and finished, and repair what fails. Wake's INVEST, with the items that pass emitted in brief shape so an orchestrator can dispatch them without a translation step.
+description: Use when candidate pieces of work need grading on whether each can be picked up and finished, with the ready ones emitted as brief-shaped items, when the user asks or as a step inside /hub. Not for producing the pieces in the first place, which is /wbs, or for grading how a written specification is worded, which is /smells. Grades each item and repairs what fails. Wake's INVEST, with the items that pass emitted in brief shape so an orchestrator can dispatch them without a translation step.
 argument-hint: [the items to grade, or nothing to use the ones on the table]
-disable-model-invocation: true
 disallowed-tools: Edit Write NotebookEdit
 ---
 

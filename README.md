@@ -30,9 +30,11 @@ Or install one directly:
 
 ## Plugins
 
+Most skills are manual-only: they run when you type them, and their descriptions stay out of context until then. Seven are callable by the model so that `/hub` can run them as steps in a run, since a manual-only skill can be started only by a user typing its name and neither the main session nor a subagent can reach it: `/what`, `/wbs`, `/invest`, `/characterize`, `/differential`, `/mutate`, and `/parallel-change`. Each of the seven opens its description with a narrow trigger, so it is not picked up for work that merely resembles its own.
+
 ### [`questions`](./plugins/questions)
 
-Six manual-only interrogatives for work in progress. None is auto-invoked, and none of them write.
+Six interrogatives for work in progress, none of which write. All are manual except `/what`, which `/hub` can run over the changes a run made.
 
 | Skill | Purpose |
 | --- | --- |
@@ -51,7 +53,7 @@ Claims carry an inline provenance tag (`[session]`, a `file:line` citation, or `
 
 ### [`dialect`](./plugins/dialect)
 
-Eleven controlled-language modes. Each skill constrains the vocabulary, sentence shape, evidence, or order of what Claude writes to a published rule set, either on a single target or for the rest of the session. Manual-only, like the interrogatives above.
+Eleven controlled-language modes. Each skill constrains the vocabulary, sentence shape, evidence, or order of what Claude writes to a published rule set, either on a single target or for the rest of the session. Manual-only.
 
 | Skill | Purpose |
 | --- | --- |
@@ -77,7 +79,7 @@ A dialect governs prose only. It never rewrites code, quotations, or identifiers
 
 ### [`hub`](./plugins/hub)
 
-Hub-and-spoke orchestration. The hub is the main session rather than a subagent: `/hub` loads the protocol into the conversation you are already in, and that conversation dispatches the work. Manual-only, like the plugins above.
+Hub-and-spoke orchestration. The hub is the main session rather than a subagent: `/hub` loads the protocol into the conversation you are already in, and that conversation dispatches the work. Manual-only: `/hub` runs only when you type it.
 
 | Skill | Purpose |
 | --- | --- |
@@ -87,13 +89,15 @@ The hub delegates by default and edits by exception, against a stated test: if t
 
 Spokes route to the agents already installed in your session, preferring the most specific match, and fall back to three generics the plugin ships (`hub-investigator`, `hub-implementer`, `hub-verifier`). A returned report is treated as a claim rather than a result, and the hub re-runs decisive checks itself.
 
+Where other plugins from this marketplace are installed, the hub runs their procedures as steps: `/wbs` or `/invest` when the pieces are not obvious, `/characterize` before an untested change point, `/parallel-change` for an interface change whose callers fall in different write sets, `/differential` for a claim that behaviour is unchanged, `/mutate` on tests a spoke wrote, and `/what` over the run's changes, whose loose ends become seam candidates at integration.
+
 ```
 /plugin install hub@naikidev
 ```
 
 ### [`visualize`](./plugins/visualize)
 
-Fourteen manual-only skills that render content as tables, lists, trees, diagrams, and charts. Alignment and padding are computed by each skill's bundled `scripts/render.js`, a zero-dependency Node script, rather than hand-typed, so columns and connectors never drift. Most skills draw with Unicode box-drawing characters and symbols; `list` and `checklist` use plain ASCII markers instead, since a single decorator glyph proved too subtle to read reliably. Manual-only and read-only, like the plugins above.
+Fourteen manual-only skills that render content as tables, lists, trees, diagrams, and charts. Alignment and padding are computed by each skill's bundled `scripts/render.js`, a zero-dependency Node script, rather than hand-typed, so columns and connectors never drift. Most skills draw with Unicode box-drawing characters and symbols; `list` and `checklist` use plain ASCII markers instead, since a single decorator glyph proved too subtle to read reliably. Manual-only and read-only.
 
 | Skill | Purpose |
 | --- | --- |
@@ -120,7 +124,7 @@ Each skill takes explicit content, a file or topic to locate first, or nothing, 
 
 ### [`decide`](./plugins/decide)
 
-Ten decision procedures. Each skill runs one published protocol against a judgment already on the table, structuring it without making it. Manual-only, like the plugins above, and read-only apart from `/adr`.
+Ten decision procedures. Each skill runs one published protocol against a judgment already on the table, structuring it without making it. Manual-only, and read-only apart from `/adr`.
 
 | Skill | Purpose |
 | --- | --- |
@@ -147,7 +151,7 @@ Nine of the ten produce a recommendation you can reject and none decides anythin
 
 ### [`verify`](./plugins/verify)
 
-Six verification procedures. Where `decide` structures a judgment, these replace the judgment with an observation wherever one is available: each skill runs one published protocol to produce evidence about code that already exists. Manual-only, like the plugins above.
+Seven verification procedures. Where `decide` structures a judgment, these replace the judgment with an observation wherever one is available: each skill runs one published protocol to produce evidence about code that already exists. All are manual except `/characterize`, `/differential`, and `/mutate`, which `/hub` can run as steps in a run.
 
 | Skill | Purpose |
 | --- | --- |
@@ -157,8 +161,9 @@ Six verification procedures. Where `decide` structures a judgment, these replace
 | `/differential [comparison]` | Run two implementations against the same inputs and compare, replacing the oracle with a second implementation. Usually the previous version of your own code, reached through `git worktree`, which makes it the refactor safety net over the behaviour nobody wrote a test for. Accepted differences are declared before the run. |
 | `/property [target]` | Find the invariants that must hold over all inputs, by working a catalogue of property patterns rather than inventing assertions, using whichever framework the project already has. Half the findings come from the properties that could not be stated. |
 | `/mutate [file]` | Introduce small faults deliberately and check whether the tests notice. Coverage measures which lines executed; this measures which faults are detected. The sharpest tool here for generated suites, whose characteristic failure is high coverage with weak assertions. |
+| `/characterize [code to change]` | Pin what code does now, before changing code that no test reaches, by Feathers's characterization testing. The pins are lasting tests named so nobody mistakes them for a specification, and behaviour that looks wrong is pinned and listed as an open question, never fixed. The output ends with the command that runs the pinned tests, which is the check a later change must keep green. |
 
-The shared rule is *check before you verify*, the same discipline `decide` opens with. Each protocol also fixes an order of operations so the observation cannot be corrupted by what you expect to see: the oracle is validated before any reduction, both bisect endpoints are tested, the accepted differences are declared before the differential run, and the suite is proved green before a single mutant is introduced.
+The shared rule is *check before you verify*, the same discipline `decide` opens with. Each protocol also fixes an order of operations so the observation cannot be corrupted by what you expect to see: the oracle is validated before any reduction, both bisect endpoints are tested, the accepted differences are declared before the differential run, the suite is proved green before a single mutant is introduced, and every characterization test is run against a deliberately wrong value before the observed one is recorded.
 
 Three skills bundle a zero-dependency Node script, for the reason `visualize` does: where an answer has a checkable invariant, it should be computed rather than generated. `ddmin.js` runs the reduction, `predicate.js` collapses a flaky check into git's `0`, `1`, and `125` exit codes, and `mutate.js` owns mutant discovery and the whole apply-run-restore loop.
 
@@ -170,7 +175,7 @@ Three skills bundle a zero-dependency Node script, for the reason `visualize` do
 
 ### [`refine`](./plugins/refine)
 
-Six refinement procedures. Where `decide` structures a judgment and `verify` produces evidence about code that exists, these take work that has been described but not yet defined and drive it down until it can be executed. Manual-only and read-only, like the plugins above.
+Six refinement procedures. Where `decide` structures a judgment and `verify` produces evidence about code that exists, these take work that has been described but not yet defined and drive it down until it can be executed. Read-only, and manual except `/wbs` and `/invest`, which `/hub` can run as steps when a task's pieces are not obvious.
 
 | Skill | Purpose |
 | --- | --- |
@@ -189,6 +194,20 @@ The pipeline runs `/impact` to `/wbs` to `/split` to `/examples` to `/invest`, w
 
 ```
 /plugin install refine@naikidev
+```
+
+### [`change`](./plugins/change)
+
+One staged-change procedure. Where `refine` drives described work down into pieces, this plans the one change that will not partition: an interface whose consumers are spread across files, so the callee and its callers fall in different write sets and no writer can go green alone. Read-only, and callable by the model so `/hub` can run it when a piece turns out to be an interface change.
+
+| Skill | Purpose |
+| --- | --- |
+| `/parallel-change [interface change]` | Sato's Parallel Change: expand, migrate, contract, with every phase leaving the system working. Expand adds the new form beside the old as one piece. Migrate moves the consumers in batches with disjoint write sets and no dependency on each other, which makes them a parallel front. Contract removes the old form behind a gate: a search for the old symbol returning nothing, the suite green, and evidence for each reference a search cannot reach. It counts the references per write set before planning, and declines when the consumers all sit in one write set. |
+
+Each piece comes out with an objective, a write set, a check, and what it depends on, which map onto a [`hub`](./plugins/hub) spoke brief with the ordering its gate needs already stated. Where `refine` is installed, `/invest` can grade the pieces first and emit them in full brief shape.
+
+```
+/plugin install change@naikidev
 ```
 
 ## Naming

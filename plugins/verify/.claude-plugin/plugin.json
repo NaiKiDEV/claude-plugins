@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "verify",
   "displayName": "Verify",
-  "version": "0.1.1",
-  "description": "Manual-only verification procedures. Each skill runs one published protocol to produce evidence about code that already exists, rather than an argument about it. Ships /repro (delta debugging), /bisect (predicate-driven bisection), /boundary (equivalence partitioning and boundary value analysis), /differential (differential testing), /property (property-based testing), and /mutate (mutation testing).",
+  "version": "0.2.0",
+  "description": "Verification procedures. Each skill runs one published protocol to produce evidence about code that already exists, rather than an argument about it. Ships /repro (delta debugging), /bisect (predicate-driven bisection), /boundary (equivalence partitioning and boundary value analysis), /differential (differential testing), /property (property-based testing), /mutate (mutation testing), and /characterize (Feathers characterization testing). All are manual except /characterize, /differential, and /mutate, which /hub can run as steps. Three skills bundle a zero-dependency Node script, and /mutate, the only skill that rewrites a tracked file, refuses to run on a dirty tree or a red suite and proves byte-identical restoration.",
   "author": {
     "name": "naikidev",
     "url": "https://github.com/naikidev"
@@ -38,6 +38,9 @@
     "demillo",
     "test-quality",
     "coverage",
-    "oracle"
+    "oracle",
+    "characterization-testing",
+    "feathers",
+    "legacy-code"
   ]
 }

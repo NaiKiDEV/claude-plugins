@@ -79,7 +79,7 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 ## Composes with
 
 - **`/normative`.** Reinforcing, and they are designed to be used together. This fixes shape, that fixes strength. Written together: `WHEN <trigger>, the <system> MUST <response>`, taking the RFC 2119 keyword in the response slot in place of the bare `shall`. Note that the generic requirement shape in `/normative` is this notation's complex template, unnamed. The value here is the classification and the coverage checks, which a single generic shape cannot give.
-- **`/ste`.** Reinforcing. STE's restricted vocabulary and 20-word limit apply cleanly inside the response slot, and the templates supply the sentence structure STE asks for anyway. Keep the upper case keywords exactly as they are.
+- **`/ste`.** Reinforcing, with one conflict, and this skill wins it. STE's restricted vocabulary and 20-word limit apply cleanly inside the response slot, and the templates supply the sentence structure STE asks for anyway. STE's replacement table sends `shall` to `must`, but that row does not apply inside a template, where `shall` marks the response slot. Keep `shall` and the upper case keywords exactly as they are.
 - **`/plain`.** No conflict. The templates are a fixed structure, which is what plain language asks for; apply the word-level rules inside the slots.
 - **`/calibrated`.** No conflict, and they must not be mixed. This states what is required. That states what is likely. A requirement is not probable.
 - **`/smells`.** Sequential, if the `refine` plugin is installed, and that comes first on somebody else's document. A requirement it flags as not singular or as missing its actor is usually the same one that fits no template here.

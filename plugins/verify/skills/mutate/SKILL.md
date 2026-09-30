@@ -1,8 +1,7 @@
 ---
 name: mutate
-description: Introduce small faults deliberately and check whether the tests notice. Mutation testing, which measures detection rather than execution.
+description: Use only when asked to measure how well a file's tests catch changes, or when a /hub run needs to check tests a spoke wrote. Never for routine use, and never as a default check after an edit. It runs the test suite once per mutant, which takes minutes to hours, and rewrites the file under test while it runs. Introduces small faults deliberately and checks whether the tests notice. Mutation testing, which measures detection rather than execution.
 argument-hint: [the file or module whose tests you doubt]
-disable-model-invocation: true
 allowed-tools: Bash Read Grep Glob
 disallowed-tools: Edit Write NotebookEdit
 ---
@@ -17,7 +16,7 @@ For agent-written code this is the sharpest tool here. The characteristic failur
 
 ## This one modifies your source
 
-Every other skill in this plugin is read-only. This one rewrites the file under test, once per mutant, and restores it. Read the safety contract before running it, because that is the part that matters.
+Every other skill in this plugin leaves existing files untouched. This one rewrites the file under test, once per mutant, and restores it. Read the safety contract before running it, because that is the part that matters.
 
 The bundled script owns the whole apply-run-restore loop, so no editing tool touches your code. It refuses to start unless the target file is clean in `git`, keeps an on-disk backup that survives being killed outright, restores in a `finally` and on `SIGINT`, `SIGTERM`, `SIGHUP`, and `SIGBREAK`, and verifies the file is byte-identical before it reports anything.
 
@@ -98,9 +97,11 @@ Write the hyphen `-` only. Do not write the em dash or the en dash. Where an em 
 - **`/boundary`.** Reinforcing, and the pair is the strongest in the plugin. That predicts which classes are untested from the input space; this proves which lines are unconstrained from the code. A surviving conditional-boundary mutant on a line that partitioning also flagged is a confirmed gap.
 - **`/property`.** Sequential, and this is the check on that. Properties are the strongest defence against surviving mutants, so run this afterwards to find out whether they earned their cost.
 - **`/differential`.** Adjacent. Both perturb something and compare, but that changes the implementation and holds the tests fixed, while this changes the code and asks whether the tests move.
+- **`/characterize`.** Sequential, and this is the check on that. Pinned tests record what the code does, which is not the same as noticing when it changes, so run this over the change region afterwards to measure whether they catch changes.
 - **`/redteam`.** The same stance, applied to a different object, if the `decide` plugin is installed. That attacks an argument, this attacks a test suite.
 - **`/premortem`.** Reinforcing, on detectability, if the `decide` plugin is installed. That ranks causes by whether anyone would notice in time, and a surviving mutant is a direct answer for the causes a test would have caught.
 - **`/quit`.** Reinforcing, occasionally, if the `decide` plugin is installed. A file whose mutation score does not move after real effort is evidence about the design, not just about the tests.
+- **`/hub`.** Sequential, if the `hub` plugin is installed, and this is the check on a spoke's tests. Tests a spoke wrote can pass while asserting nothing, so in a `/hub` run this covers tests a spoke wrote against source that is still clean in `git`, through the `verify-mutator` agent, and source a spoke changed must be committed first.
 
 ## Before you send
 

@@ -23,7 +23,7 @@ Each protocol works by making an absence visible as a structural failure rather 
 
 ## Conventions
 
-**Manual only.** Every skill sets `disable-model-invocation: true`. Claude never invokes a refinement procedure on its own, and the descriptions stay out of context until a skill is called.
+**Manual by default, with two callable by the model.** Four skills set `disable-model-invocation: true`, so Claude never invokes them on its own and their descriptions stay out of context until one is called. `/wbs` and `/invest` do not, so that where the [`hub`](../hub) plugin is installed, `/hub` can run them as steps when a task's pieces are not obvious: a skill with the flag can be invoked only by a user typing its name, and neither the main session nor a subagent can reach it. Each of the two opens its description with a narrow trigger and says it applies when the user asks or as a step inside `/hub`.
 
 **Read-only.** All six hold `disallowed-tools: Edit Write NotebookEdit`. They read the repository, run commands, and report. Nothing here writes a plan file, because a plan file that is not maintained is worse than no plan file, and deciding what lands on disk belongs to the user.
 

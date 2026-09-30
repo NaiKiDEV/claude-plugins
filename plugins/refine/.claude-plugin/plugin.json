@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "refine",
   "displayName": "Refine",
-  "version": "0.1.0",
-  "description": "Manual-only refinement procedures. Each skill runs one published protocol against work that has been described but not yet defined well enough to execute, driving it down until every unit is unambiguous to a human and dispatchable by an orchestrator. Ships /impact (Adzic impact mapping), /wbs (work breakdown and the 100% rule), /split (Lawrence and Cohn splitting patterns), /examples (Wynne example mapping), /smells (ISO 29148 and requirements smells), and /invest (Wake's INVEST, which emits ready items in the five fields a spoke brief is made of).",
+  "version": "0.2.0",
+  "description": "Refinement procedures. Each skill runs one published protocol against work that has been described but not yet defined well enough to execute, driving it down until every unit is unambiguous to a human and dispatchable by an orchestrator. Ships /impact (Adzic impact mapping), /wbs (work breakdown and the 100% rule), /split (Lawrence and Cohn splitting patterns), /examples (Wynne example mapping), /smells (ISO 29148 and requirements smells), and /invest (Wake's INVEST, which emits ready items in the five fields a spoke brief is made of). All are manual except /wbs and /invest, which /hub can run as steps when a task's pieces are not obvious.",
   "author": {
     "name": "naikidev",
     "url": "https://github.com/naikidev"

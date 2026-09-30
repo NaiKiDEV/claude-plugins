@@ -1,8 +1,7 @@
 ---
 name: what
-description: Summarize what changed in a scope, covering session edits, working tree, staged, a branch, or a commit range, grouped by intent rather than by file.
+description: Use when describing what changed over a range (a diff, a branch, a commit range, or the changes a /hub run made), including the loose ends it left, when the user asks or as a step inside /hub. Not for reviewing whether a change is correct, or for how or why the changed code works. Summarizes what changed in a scope, covering session edits, working tree, staged, a branch, or a commit range, grouped by intent rather than by file.
 argument-hint: [scope or thing that changed]
-disable-model-invocation: true
 allowed-tools: Bash(git status *) Bash(git diff *) Bash(git log *) Bash(git show *) Grep Glob Read
 disallowed-tools: Edit Write NotebookEdit
 ---
